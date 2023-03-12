@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">CerfCraft</string>
+    <string name="serching_tool_bar">Filtrer par...</string>
+    <string name="craft_menu">Craft</string>
+    <string name="biomes_menu">Biomes</string>
+    <string name="items_menu">Items</string>
+    <string name="notes_menu">Notes</string>
+    <string name="mobs_menu">Mobs</string>
+    <string name="cuisson_menu">Cuisson</string>
+    <string name="missions_menu">Missions</string>
 </resources>
