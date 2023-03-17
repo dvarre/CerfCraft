@@ -28,7 +28,7 @@ import fr.cerfcraft.R;
 
 public class MainActivity extends AppCompatActivity {
 
-    FirebaseFirestore firestore;
+    //FirebaseFirestore firestore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-
+        /*
         firestore = FirebaseFirestore.getInstance();
 
         Map<String, Object> users = new HashMap<>();
@@ -120,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
             public void onFailure(@NonNull Exception e) {
                 Toast.makeText(getApplicationContext(), "Failure", Toast.LENGTH_LONG).show();
             }
-        });
+        });*/
 
 
     }
