@@ -2,6 +2,7 @@ package fr.cerfcraft.activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -21,6 +22,7 @@ import fr.cerfcraft.BiomesActivity;
 import fr.cerfcraft.CraftActivity;
 import fr.cerfcraft.CuissonActivity;
 import fr.cerfcraft.ItemsActivity;
+import fr.cerfcraft.Manifest;
 import fr.cerfcraft.MissionsActivity;
 import fr.cerfcraft.MobsActivity;
 import fr.cerfcraft.NotesActivity;
@@ -53,6 +55,10 @@ public class MainActivity extends AppCompatActivity {
                 MissionsActivity.class,
                 NotesActivity.class
         };
+
+
+
+
 
         for (int i=0; i<listButtonId.length; i++){
             Button activityToAcess = findViewById(listButtonId[i]);
