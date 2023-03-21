@@ -35,8 +35,12 @@
             android:name=".NotesActivity"
             android:exported="false" />
         <activity
+            android:name=".WritingNotesActivity"
+            android:exported="true"/>
+        <activity
             android:name=".activity.MainActivity"
             android:exported="true">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

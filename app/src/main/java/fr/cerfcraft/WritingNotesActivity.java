@@ -1,26 +1,27 @@
 package fr.cerfcraft;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 
-import fr.cerfcraft.WritingNotesActivity;
+import androidx.appcompat.app.AppCompatActivity;
 
-public class NotesActivity extends AppCompatActivity {
+import fr.cerfcraft.R;
+import fr.cerfcraft.activity.Note;
+
+public class WritingNotesActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_notes);
+        setContentView(R.layout.note);
 
         final int listButtonId[] = {
-                R.id.addNote
+                R.id.valider
         };
 
         Class listClass[] = {
-                WritingNotesActivity.class
+                NotesActivity.class
         };
 
 
@@ -29,14 +30,12 @@ public class NotesActivity extends AppCompatActivity {
             switch(i){
                 default:
                     activityToAcess.setOnClickListener(v -> {
-                        Intent intent = new Intent(this, WritingNotesActivity.class );
+                        Intent intent = new Intent(this, NotesActivity.class );
                         startActivity(intent);
                     });
                     break;
             }
         }
-
-
 
     }
 }
