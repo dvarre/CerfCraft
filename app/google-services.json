@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "827116300597",
+    "project_id": "cerf-craft",
+    "storage_bucket": "cerf-craft.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:827116300597:android:e7a1052027f6523c58447c",
+        "android_client_info": {
+          "package_name": "fr.cerfcraft"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "827116300597-8bc1is8iq827ls4vncskhjuu66f7vcla.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "fr.cerfcraft",
+            "certificate_hash": "2dcf4b665f55a6939b2ce3283b1fe6304259f205"
+          }
+        },
+        {
+          "client_id": "827116300597-102gv8u532pl8u8b9vflaqaglootpslb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFiHxbhitKCPFP_iyrtIXtlZzfArnRHbE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "827116300597-102gv8u532pl8u8b9vflaqaglootpslb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

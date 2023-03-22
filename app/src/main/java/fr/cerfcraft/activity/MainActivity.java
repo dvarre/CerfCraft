@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
                 MissionsActivity.class,
                 NotesActivity.class
         };
-
+//test
         for (int i=0; i<listButtonId.length; i++){
             Button activityToAcess = findViewById(listButtonId[i]);
             switch(i){
