@@ -3,15 +3,16 @@ package fr.cerfcraft.model;
 import java.util.Collection;
 
 public class Mob {
-    int id;
-    String name;
-    String behaviour;
-    int health;
-    int damageEasy;
-    int damageNormal;
-    int damageHard;
-    int experience;
-    Collection<Loot> loots;
+    int id; //ok
+    String name; //ok
+    String behaviour; //ok
+    int health; //ok
+    int damageEasy; //ok
+    int damageNormal; //ok
+    int damageHard; //ok
+    int experience; //ok
+    String image; //ok
+    //Collection<Loot> loots;
 
     public int getId() {
         return id;
@@ -45,7 +46,11 @@ public class Mob {
         return experience;
     }
 
-    public Collection<Loot> getLoots() {
-        return loots;
+    public String getImage() {
+        return image;
     }
+
+    //    public Collection<Loot> getLoots() {
+//        return loots;
+//    }
 }
