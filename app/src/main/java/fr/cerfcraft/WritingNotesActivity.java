@@ -8,8 +8,10 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.room.Room;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -26,7 +28,9 @@ import java.lang.reflect.Array;
 import java.nio.charset.StandardCharsets;
 
 import fr.cerfcraft.R;
+import fr.cerfcraft.activity.AppDataBase;
 import fr.cerfcraft.activity.Note;
+import fr.cerfcraft.activity.NoteDao;
 
 public class WritingNotesActivity extends AppCompatActivity {
 
@@ -39,6 +43,9 @@ public class WritingNotesActivity extends AppCompatActivity {
                 R.id.valider,
         };
 
+        final int textName = R.id.editTextTextPersonName;
+        final int textDesc = R.id.editTextTextMultiLine;
+
         Class listClass[] = {
                 NotesActivity.class
         };
@@ -46,65 +53,25 @@ public class WritingNotesActivity extends AppCompatActivity {
 
         for (int i=0; i<listButtonId.length; i++){
             Button activityToAcess = findViewById(listButtonId[i]);
+            EditText nameEditText = findViewById(textName);
+            EditText descEditText = findViewById(textDesc);
             switch(i){
                 default:
                     activityToAcess.setOnClickListener(v -> {
 
-                        /*
-                        File file = new File("Notes.txt");
-                        file.setWritable(true);
-                        Log.d("Write", String.valueOf(file.canWrite()));
-
-                        try {
-                            FileWriter write = new FileWriter(file);
-
-                            write.write("Name,icone,description\n");
-
-                        } catch (IOException e) {
-                            throw new RuntimeException(e);
-                        }*/
-
-
-
-
-                        /*
-                        String filename = "memoireNote";
-                        String fileContents = "Hello world!";
-                        try (FileOutputStream fos = openFileOutput(filename, Context.MODE_PRIVATE)) {
-                            fos.write(fileContents.getBytes(StandardCharsets.UTF_8));
-                        } catch (FileNotFoundException e) {
-                            throw new RuntimeException(e);
-                        } catch (IOException e) {
-                            throw new RuntimeException(e);
-                        }
-
-                        FileInputStream fis = null;
-                        try {
-                            fis = openFileInput(filename);
-                        } catch (FileNotFoundException e) {
-                            throw new RuntimeException(e);
-                        }
-                        InputStreamReader inputStreamReader = new InputStreamReader(fis, StandardCharsets.UTF_8);
-                        StringBuilder stringBuilder = new StringBuilder();
-                        try (BufferedReader reader = new BufferedReader(inputStreamReader)) {
-                            String line = reader.readLine();
-                            while (line != null) {
-                                stringBuilder.append(line).append('\n');
-                                line = reader.readLine();
-                                Log.d("Line",line);
+                        new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+                                AppDataBase db = Room.databaseBuilder(getApplicationContext(),
+                                        AppDataBase.class, "database-name").build();
+                                NoteDao noteDao = db.noteDao();
+                                noteDao.insert(new Note(nameEditText.getText().toString(),
+                                            null,
+                                                descEditText.getText().toString()));
                             }
-                        } catch (IOException e) {
-                            throw new RuntimeException(e);
-                        } finally {
-                            String contents = stringBuilder.toString();
-                        }*/
+                        }).start();
 
 
-                        /*
-                        String[] files = fileList();
-                        for(int j=0;j< files.length;j++){
-                            Log.d("List Fichier", String.valueOf(files[j]));
-                        }*/
 
                         Intent intent = new Intent(this, NotesActivity.class );
                         startActivity(intent);

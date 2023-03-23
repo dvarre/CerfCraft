@@ -22,7 +22,7 @@ import fr.cerfcraft.BiomesActivity;
 import fr.cerfcraft.CraftActivity;
 import fr.cerfcraft.CuissonActivity;
 import fr.cerfcraft.ItemsActivity;
-import fr.cerfcraft.Manifest;
+//import fr.cerfcraft.Manifest;
 import fr.cerfcraft.MissionsActivity;
 import fr.cerfcraft.MobsActivity;
 import fr.cerfcraft.NotesActivity;
