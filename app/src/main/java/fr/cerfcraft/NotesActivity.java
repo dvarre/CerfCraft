@@ -36,8 +36,6 @@ public class NotesActivity extends AppCompatActivity {
             switch(i){
                 default:
                     activityToAcess.setOnClickListener(v -> {
-
-
                         new Thread(new Runnable() {
                             @Override
                             public void run() {

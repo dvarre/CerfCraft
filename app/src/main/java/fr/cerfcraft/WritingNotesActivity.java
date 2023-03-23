@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
@@ -50,11 +51,11 @@ public class WritingNotesActivity extends AppCompatActivity {
                 NotesActivity.class
         };
 
-
+        EditText nameEditText = findViewById(textName);
+        EditText descEditText = findViewById(textDesc);
         for (int i=0; i<listButtonId.length; i++){
             Button activityToAcess = findViewById(listButtonId[i]);
-            EditText nameEditText = findViewById(textName);
-            EditText descEditText = findViewById(textDesc);
+
             switch(i){
                 default:
                     activityToAcess.setOnClickListener(v -> {
@@ -68,8 +69,10 @@ public class WritingNotesActivity extends AppCompatActivity {
                                 noteDao.insert(new Note(nameEditText.getText().toString(),
                                             null,
                                                 descEditText.getText().toString()));
+
                             }
                         }).start();
+                        Toast.makeText(WritingNotesActivity.this, "Note ajoutée avec succes", Toast.LENGTH_SHORT).show();
 
 
 
