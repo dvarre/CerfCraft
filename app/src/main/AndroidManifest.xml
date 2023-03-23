@@ -35,6 +35,9 @@
             android:name=".NotesActivity"
             android:exported="false" />
         <activity
+            android:name=".NotifsActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.MainActivity"
             android:exported="true">
             <intent-filter>
