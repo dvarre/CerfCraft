@@ -1,6 +1,4 @@
-package fr.cerfcraft;
-
-import static android.app.PendingIntent.getActivity;
+package fr.cerfcraft.model;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,19 +9,25 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
+import fr.cerfcraft.NotesActivity;
+import fr.cerfcraft.R;
 import fr.cerfcraft.activity.AppDataBase;
 import fr.cerfcraft.activity.Note;
 import fr.cerfcraft.activity.NoteDao;
 
-public class WritingNotesActivity extends AppCompatActivity {
+public class ShowingNotesActivity extends AppCompatActivity {
+
+    Note note;
+
+    public ShowingNotesActivity(Note note){this.note=note;}
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.writingnote);
+        setContentView(R.layout.activity_note);
 
         final int listButtonId[] = {
-                R.id.valider,
+                R.id.delete,
         };
 
         final int textName = R.id.editTextTextPersonName;
@@ -48,13 +52,11 @@ public class WritingNotesActivity extends AppCompatActivity {
                                 AppDataBase db = Room.databaseBuilder(getApplicationContext(),
                                         AppDataBase.class, "database-name").build();
                                 NoteDao noteDao = db.noteDao();
-                                noteDao.insert(new Note(nameEditText.getText().toString(),
-                                            null,
-                                                descEditText.getText().toString()));
+                                noteDao.delete(note);
 
                             }
                         }).start();
-                        Toast.makeText(WritingNotesActivity.this, "Note ajoutée avec succes", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ShowingNotesActivity.this, "Note supprimée avec succes", Toast.LENGTH_SHORT).show();
 
 
 
