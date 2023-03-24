@@ -42,6 +42,17 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
+        android:id="@+id/buttonNotifs"
+        android:layout_width="67dp"
+        android:layout_height="71dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:drawableTop="@drawable/logo_craft"
+        android:text="@string/notifs_menu"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
         android:id="@+id/buttonItems"
         android:layout_width="139dp"
         android:layout_height="126dp"

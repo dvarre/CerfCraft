@@ -15,6 +15,7 @@ import fr.cerfcraft.ItemsActivity;
 import fr.cerfcraft.MissionsActivity;
 import fr.cerfcraft.MobsActivity;
 import fr.cerfcraft.NotesActivity;
+import fr.cerfcraft.NotifsActivity;
 import fr.cerfcraft.R;
 
 public class MainActivity extends AppCompatActivity {
@@ -42,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
                 CuissonActivity.class,
                 MissionsActivity.class,
                 NotesActivity.class,
-                buttonNotifs.class
+                NotifsActivity.class
         };
 //test
         for (int i=0; i<listButtonId.length; i++){
