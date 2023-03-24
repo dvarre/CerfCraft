@@ -50,6 +50,9 @@ public class Mob {
         return image;
     }
 
+
+
+
     //    public Collection<Loot> getLoots() {
 //        return loots;
 //    }
