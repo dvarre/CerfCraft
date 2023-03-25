@@ -28,6 +28,8 @@ public class MissionsActivity extends AppCompatActivity {
     MissionAdapter missionAdapter;
     List<Mission> missionList;
 
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

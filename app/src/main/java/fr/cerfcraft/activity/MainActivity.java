@@ -1,11 +1,15 @@
 package fr.cerfcraft.activity;
 
+import static android.content.ContentValues.TAG;
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -14,29 +18,46 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Map;
 
 import fr.cerfcraft.BiomesActivity;
 import fr.cerfcraft.CraftActivity;
 import fr.cerfcraft.CuissonActivity;
+import fr.cerfcraft.DAO.BasicDAO;
 import fr.cerfcraft.ItemsActivity;
 //import fr.cerfcraft.Manifest;
 import fr.cerfcraft.MissionsActivity;
 import fr.cerfcraft.MobsActivity;
 import fr.cerfcraft.NotesActivity;
 import fr.cerfcraft.R;
+import fr.cerfcraft.model.Mission;
 
 public class MainActivity extends AppCompatActivity {
-
-    //FirebaseFirestore firestore;
-
+    private FirebaseFirestore db = FirebaseFirestore.getInstance();
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        DocumentReference docRef = db.collection("missions").document("oHO89WngEDDSoDoZxsbD");
+        BasicDAO dao = new BasicDAO() ;
+        Map<String, Object> map = dao.getDocumentsFromBD(docRef);
+        System.out.println("la map vaut : " + map);
+        Mission mission = new Mission();
+        System.out.println("Les missions fonctionnent " + mission.getMissionList().isEmpty());
+//        System.out.println("TEEEEEEEEEEEEEEEEEEEEEEEEEEESSSSSSSSSSSSSSSSSSSSSSSSSTTTTTTTTTTTTTTT");
+//        System.out.println("est que map est rempli ? " + map.equals(null) + " sinon vaut : " + map);
+//        //map.forEach((key,value) -> System.out.print("test"));
         final int listButtonId[] = {
                 R.id.buttonCraft,
                 R.id.buttonBiomes,
