@@ -3,6 +3,7 @@ package fr.cerfcraft.adapter;
 import static android.content.ContentValues.TAG;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -14,8 +15,16 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+
 import java.util.List;
 
+import fr.cerfcraft.CraftItem;
 import fr.cerfcraft.R;
 import fr.cerfcraft.model.Biome;
 import fr.cerfcraft.model.Craft;
@@ -23,6 +32,8 @@ import fr.cerfcraft.model.Craft;
 public class CraftAdapter extends RecyclerView.Adapter<CraftAdapter.CraftViewHolder>{
     Context context;
     List<Craft> crafts;
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
+    CollectionReference ref = db.collection("crafts");
 
     public CraftAdapter(Context context, List<Craft> crafts) {
         this.context = context;
@@ -48,6 +59,25 @@ public class CraftAdapter extends RecyclerView.Adapter<CraftAdapter.CraftViewHol
         Drawable craftDrawable = context.getResources().getDrawable(craftDrawableId);
         craftDrawable.setBounds(0,0,390,300);
         holder.craftButton.setCompoundDrawables(craftDrawable,null,null,null);
+
+        holder.craftButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ref.whereEqualTo("id", craft.getId()).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                Log.d(TAG, document.getId() + " => " + document.getData());
+                                Intent intent = new Intent(context, CraftItem.class);
+                                intent.putExtra("idToDisplay", document.getId());
+                                context.startActivity(intent);
+                            }
+                        }
+                    }
+                });
+            }
+        });
     }
 
     @Override

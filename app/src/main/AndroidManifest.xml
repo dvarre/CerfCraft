@@ -14,6 +14,21 @@
         android:theme="@style/Theme.CerfCraft"
         tools:targetApi="31">
         <activity
+            android:name=".MobInfo"
+            android:exported="false" />
+        <activity
+            android:name=".MissionInfo"
+            android:exported="false" />
+        <activity
+            android:name=".ItemInfo"
+            android:exported="false" />
+        <activity
+            android:name=".BiomeInfo"
+            android:exported="false" />
+        <activity
+            android:name=".CraftItem"
+            android:exported="false" />
+        <activity
             android:name=".MissionsActivity"
             android:exported="false" />
         <activity

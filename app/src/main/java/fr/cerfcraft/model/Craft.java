@@ -2,13 +2,45 @@ package fr.cerfcraft.model;
 
 import com.google.firebase.firestore.DocumentReference;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Craft {
 
     int id;
     DocumentReference result;
-    DocumentReference[] slots = new DocumentReference[9];
+    List<DocumentReference> slots = new ArrayList<>();
     String name;
     String image;
+    String description;
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setResult(DocumentReference result) {
+        this.result = result;
+    }
+
+    public List<DocumentReference> getSlots() {
+        return slots;
+    }
+
+    public void setSlots(List<DocumentReference> slots) {
+        this.slots = slots;
+    }
 
     public String getName() {
         return name;
