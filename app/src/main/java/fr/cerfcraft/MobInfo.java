@@ -35,6 +35,7 @@ public class MobInfo extends AppCompatActivity {
             }
         }
         TextView txtView = findViewById(R.id.titre);
+        TextView descriptionView = findViewById(R.id.description);
         ImageView imageView = findViewById(R.id.image);
         ref.document(id).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
@@ -42,6 +43,7 @@ public class MobInfo extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     Mob mob = task.getResult().toObject(Mob.class);
                     txtView.setText(mob.getName());
+                    descriptionView.setText(mob.getBehaviour());
                     String uri = "@drawable/" + mob.getImage();
 
                     int imageResource = getResources().getIdentifier(uri, null, getPackageName());
@@ -51,6 +53,7 @@ public class MobInfo extends AppCompatActivity {
                 }
                 else{
                     txtView.setText("");
+                    descriptionView.setText("");
                 }
             }
         });
