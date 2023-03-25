@@ -116,5 +116,7 @@ public class MainActivity extends AppCompatActivity {
                     break;
             }
         }
+
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
     }
 }

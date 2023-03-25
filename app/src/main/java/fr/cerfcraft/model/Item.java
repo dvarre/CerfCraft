@@ -11,10 +11,19 @@ public class Item {
     DocumentReference craft;
     Integer durability;// ok
     Integer damage; // ok
+    String description;
     //boolean hasCraft;
     //boolean hasDurability;
     //boolean canDamage;
 
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     public int getId() {
         return id;

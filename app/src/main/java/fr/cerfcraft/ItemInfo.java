@@ -38,14 +38,14 @@ public class ItemInfo extends AppCompatActivity {
         }
         TextView txtView = findViewById(R.id.titre);
         ImageView imageView = findViewById(R.id.image);
-//            TextView descriptionView = findViewById(R.id.description);
+        TextView descriptionView = findViewById(R.id.description);
         ref.document(id).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 if (task.isSuccessful()) {
                     Item item  = task.getResult().toObject(Item.class);
                     txtView.setText(item.getName());
-//                        descriptionView.setText(item.getDescription());
+                    descriptionView.setText(item.getDescription());
                     String uri = "@drawable/" + item.getImage();
 
                     int imageResource = getResources().getIdentifier(uri, null, getPackageName());
@@ -55,7 +55,7 @@ public class ItemInfo extends AppCompatActivity {
                 }
                 else{
                     txtView.setText("");
-//                        descriptionView.setText("");
+                    descriptionView.setText("");
                 }
             }
         });
