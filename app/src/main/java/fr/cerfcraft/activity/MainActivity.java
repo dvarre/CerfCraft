@@ -4,12 +4,19 @@ import static android.content.ContentValues.TAG;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -28,6 +35,7 @@ import fr.cerfcraft.CraftActivity;
 import fr.cerfcraft.CuissonActivity;
 import fr.cerfcraft.DAO.BasicDAO;
 import fr.cerfcraft.ItemsActivity;
+//import fr.cerfcraft.Manifest;
 import fr.cerfcraft.MissionsActivity;
 import fr.cerfcraft.MobsActivity;
 import fr.cerfcraft.NotesActivity;
@@ -68,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
                 MissionsActivity.class,
                 NotesActivity.class
         };
-//test
+
         for (int i=0; i<listButtonId.length; i++){
             Button activityToAcess = findViewById(listButtonId[i]);
             switch(i){
