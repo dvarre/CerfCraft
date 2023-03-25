@@ -12,7 +12,53 @@ public class Mob {
     int damageHard; //ok
     int experience; //ok
     String image; //ok
+    //String description;
     //Collection<Loot> loots;
+
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setBehaviour(String behaviour) {
+        this.behaviour = behaviour;
+    }
+
+    public void setHealth(int health) {
+        this.health = health;
+    }
+
+    public void setDamageEasy(int damageEasy) {
+        this.damageEasy = damageEasy;
+    }
+
+    public void setDamageNormal(int damageNormal) {
+        this.damageNormal = damageNormal;
+    }
+
+    public void setDamageHard(int damageHard) {
+        this.damageHard = damageHard;
+    }
+
+    public void setExperience(int experience) {
+        this.experience = experience;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+//    public String getDescription() {
+//        return description;
+//    }
+//
+//    public void setDescription(String description) {
+//        this.description = description;
+//    }
 
     public int getId() {
         return id;
@@ -49,6 +95,9 @@ public class Mob {
     public String getImage() {
         return image;
     }
+
+
+
 
     //    public Collection<Loot> getLoots() {
 //        return loots;

@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="fr.cerfcraft">
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"></uses-permission>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
+
 
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <application
@@ -14,6 +17,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CerfCraft"
         tools:targetApi="31">
+        <activity
+            android:name=".MobInfo"
+            android:exported="false" />
+        <activity
+            android:name=".MissionInfo"
+            android:exported="false" />
+        <activity
+            android:name=".ItemInfo"
+            android:exported="false" />
+        <activity
+            android:name=".BiomeInfo"
+            android:exported="false" />
+        <activity
+            android:name=".CraftItem"
+            android:exported="false" />
         <activity
             android:name=".MissionsActivity"
             android:exported="false" />
@@ -39,8 +57,12 @@
             android:name=".NotifsActivity"
             android:exported="false" />
         <activity
+            android:name=".WritingNotesActivity"
+            android:exported="true"/>
+        <activity
             android:name=".activity.MainActivity"
             android:exported="true">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
