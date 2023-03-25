@@ -39,6 +39,7 @@ import fr.cerfcraft.ItemsActivity;
 import fr.cerfcraft.MissionsActivity;
 import fr.cerfcraft.MobsActivity;
 import fr.cerfcraft.NotesActivity;
+import fr.cerfcraft.NotifsActivity;
 import fr.cerfcraft.R;
 import fr.cerfcraft.model.Mission;
 
@@ -65,7 +66,8 @@ public class MainActivity extends AppCompatActivity {
                 R.id.buttonMobs,
                 R.id.buttonCuisson,
                 R.id.buttonMissions,
-                R.id.buttonNotes
+                R.id.buttonNotes,
+                R.id.buttonNotifs
         };
         Class listActivityClass[] = {
                 CraftActivity.class,
@@ -74,7 +76,8 @@ public class MainActivity extends AppCompatActivity {
                 MobsActivity.class,
                 CuissonActivity.class,
                 MissionsActivity.class,
-                NotesActivity.class
+                NotesActivity.class,
+                NotifsActivity.class
         };
 
         for (int i=0; i<listButtonId.length; i++){
@@ -113,6 +116,12 @@ public class MainActivity extends AppCompatActivity {
                 case 6:
                     activityToAcess.setOnClickListener(v -> {
                         Intent intent = new Intent(this, NotesActivity.class);
+                        startActivity(intent);
+                    });
+                    break;
+                case 7:
+                    activityToAcess.setOnClickListener(v -> {
+                        Intent intent = new Intent(this, NotifsActivity.class);
                         startActivity(intent);
                     });
                     break;
