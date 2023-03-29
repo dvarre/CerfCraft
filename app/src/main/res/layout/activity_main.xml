@@ -45,8 +45,8 @@
         android:id="@+id/buttonNotifs"
         android:layout_width="67dp"
         android:layout_height="71dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="68dp"
         android:drawableTop="@drawable/logo_craft"
         android:text="@string/notifs_menu"
         app:layout_constraintStart_toStartOf="parent"
@@ -95,5 +95,8 @@
         android:text="@string/biomes_menu"
         app:layout_constraintStart_toEndOf="@+id/buttonCraft"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <include
+        layout="@layout/appbar"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

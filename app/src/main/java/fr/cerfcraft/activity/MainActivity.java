@@ -4,12 +4,15 @@ import static android.content.ContentValues.TAG;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -44,12 +47,18 @@ import fr.cerfcraft.R;
 import fr.cerfcraft.model.Mission;
 
 public class MainActivity extends AppCompatActivity {
+    private Toolbar toolbar;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //Toolbar
+        toolbar=findViewById(R.id.appToolBar); // On get la toolbar personnalisée qu'on a créé
+        setSupportActionBar(toolbar);
+
         DocumentReference docRef = db.collection("missions").document("oHO89WngEDDSoDoZxsbD");
         BasicDAO dao = new BasicDAO() ;
         Map<String, Object> map = dao.getDocumentsFromBD(docRef);
@@ -135,5 +144,12 @@ public class MainActivity extends AppCompatActivity {
         }
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater=getMenuInflater();
+        inflater.inflate(R.menu.menu,menu);
+        return true;
     }
 }
