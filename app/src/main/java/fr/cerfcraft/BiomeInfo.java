@@ -3,12 +3,16 @@ package fr.cerfcraft;
 import static android.content.ContentValues.TAG;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -22,12 +26,19 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import fr.cerfcraft.model.Biome;
 
 public class BiomeInfo extends AppCompatActivity {
+    private Toolbar toolbar;
+
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     CollectionReference ref = db.collection("biomes");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_biome_info);
+
+        toolbar=findViewById((R.id.include_biome_info));
+        setSupportActionBar(toolbar);
+        ActionBar actionBar=getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
         Intent intent = getIntent();
         if (intent != null){
@@ -59,5 +70,12 @@ public class BiomeInfo extends AppCompatActivity {
                 }
             });
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater=getMenuInflater();
+        inflater.inflate(R.menu.menu,menu);
+        return true;
     }
 }

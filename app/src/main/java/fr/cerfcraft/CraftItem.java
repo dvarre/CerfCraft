@@ -1,11 +1,15 @@
 package fr.cerfcraft;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -22,6 +26,7 @@ import fr.cerfcraft.model.Biome;
 import fr.cerfcraft.model.Craft;
 
 public class CraftItem extends AppCompatActivity {
+    private Toolbar toolbar;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     CollectionReference ref = db.collection("crafts");
 
@@ -29,6 +34,11 @@ public class CraftItem extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_craft_item);
+
+        toolbar=findViewById((R.id.include_craft_item));
+        setSupportActionBar(toolbar);
+        ActionBar actionBar=getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
         String id ="";
         Intent intent = getIntent();
@@ -62,5 +72,12 @@ public class CraftItem extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater=getMenuInflater();
+        inflater.inflate(R.menu.menu,menu);
+        return true;
     }
 }

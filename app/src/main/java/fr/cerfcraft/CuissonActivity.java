@@ -1,6 +1,8 @@
 package fr.cerfcraft;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.NotificationCompat;
 
 import android.app.NotificationChannel;
@@ -9,11 +11,14 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.widget.Button;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
 public class CuissonActivity extends AppCompatActivity {
+    private Toolbar toolbar;
 
     protected NotificationManager notificationManager;
     Button button;
@@ -28,6 +33,11 @@ public class CuissonActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cuisson);
+
+        toolbar=findViewById((R.id.include_cuisson));
+        setSupportActionBar(toolbar);
+        ActionBar actionBar=getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             CharSequence name = "Notification cuisson";
@@ -85,5 +95,12 @@ public class CuissonActivity extends AppCompatActivity {
             default :
                 return 10;
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater=getMenuInflater();
+        inflater.inflate(R.menu.menu,menu);
+        return true;
     }
 }

@@ -1,6 +1,8 @@
 package fr.cerfcraft;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
@@ -8,6 +10,8 @@ import androidx.room.Room;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.widget.Button;
 
 import java.util.ArrayList;
@@ -22,6 +26,7 @@ import fr.cerfcraft.adapter.NoteAdapter;
 import fr.cerfcraft.model.Biome;
 
 public class NotesActivity extends AppCompatActivity {
+    private Toolbar toolbar;
 
     NoteAdapter noteAdapter;
     List<Note> notes;
@@ -32,6 +37,11 @@ public class NotesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notes);
+
+        toolbar=findViewById((R.id.include_notes));
+        setSupportActionBar(toolbar);
+        ActionBar actionBar=getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
         final int listButtonId[] = {
                 R.id.addNote
@@ -86,8 +96,12 @@ public class NotesActivity extends AppCompatActivity {
                     break;
             }
         }
+    }
 
-
-
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater=getMenuInflater();
+        inflater.inflate(R.menu.menu,menu);
+        return true;
     }
 }
