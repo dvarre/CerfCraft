@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".activity.MainActivity">
 
+
     <Button
         android:id="@+id/buttonNotes"
         android:layout_width="139dp"
@@ -14,10 +15,8 @@
         android:layout_marginTop="44dp"
         android:drawableTop="@drawable/logo_notes"
         android:text="@string/notes_menu"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonCuisson"
-        app:layout_constraintVertical_bias="0.157" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonCuisson" />
 
     <Button
         android:id="@+id/buttonMissions"
@@ -98,5 +97,10 @@
 
     <include
         layout="@layout/appbar"/>
+    <include
+        layout="@layout/search_result"/>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
