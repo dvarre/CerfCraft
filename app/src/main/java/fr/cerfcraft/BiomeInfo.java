@@ -31,6 +31,7 @@ import fr.cerfcraft.adapter.BiomeAdapter;
 import fr.cerfcraft.adapter.LinkBiomeAdapter;
 import fr.cerfcraft.model.Biome;
 import fr.cerfcraft.model.Item;
+import fr.cerfcraft.model.Mob;
 
 public class BiomeInfo extends AppCompatActivity {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -108,6 +109,11 @@ public class BiomeInfo extends AppCompatActivity {
         Item itemTest = new Item();
         itemTest.setName("test");
         itemTest.setImage("item_string");
+        itemTest.setId(287);
+        Mob mobTest = new Mob();
+        mobTest.setImage("mob_enderman");
+        mobTest.setName("MobTest");
+        mobTest.setId(58);
         List<Object> listTest = new ArrayList<>();
         listTest.add(itemTest);
         linkBiomeAdapter = new LinkBiomeAdapter(this, listTest); //TODO probleme ici de liste vide qui est passée. Avant la liste brute j'avais mis ça linkObjectList

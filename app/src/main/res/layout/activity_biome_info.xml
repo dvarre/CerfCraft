@@ -38,24 +38,14 @@
         app:layout_constraintTop_toBottomOf="@+id/image" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/biomesblabla"
-        android:layout_width="396dp"
-        android:layout_height="396dp"
+        android:id="@+id/links"
+        android:layout_width="361dp"
+        android:layout_height="358dp"
 
-        android:layout_marginTop="7dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linkText" />
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/links"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/linkText"
