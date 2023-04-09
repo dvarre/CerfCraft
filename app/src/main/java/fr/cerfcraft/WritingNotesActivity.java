@@ -3,6 +3,7 @@ package fr.cerfcraft;
 import static android.app.PendingIntent.getActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -40,6 +41,8 @@ public class WritingNotesActivity extends AppCompatActivity {
 
             switch(i){
                 default:
+
+                    activityToAcess.setBackgroundColor(Color.BLUE);
                     activityToAcess.setOnClickListener(v -> {
 
                         new Thread(new Runnable() {
@@ -48,7 +51,8 @@ public class WritingNotesActivity extends AppCompatActivity {
                                 AppDataBase db = Room.databaseBuilder(getApplicationContext(),
                                         AppDataBase.class, "database-name").build();
                                 NoteDao noteDao = db.noteDao();
-                                noteDao.insert(new Note(nameEditText.getText().toString(),
+                                int id = noteDao.getAll().size();
+                                noteDao.insert(new Note(id,nameEditText.getText().toString(),
                                             null,
                                                 descEditText.getText().toString()));
 

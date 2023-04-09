@@ -2,6 +2,7 @@
     <string name="app_name">CerfCraft</string>
     <string name="serching_tool_bar">Filtrer par...</string>
     <string name="craft_menu">Craft</string>
+    <string name="notifs_menu">Notifs</string>
     <string name="biomes_menu">Biomes</string>
     <string name="items_menu">Items</string>
     <string name="notes_menu">Notes</string>
