@@ -44,21 +44,12 @@ import fr.cerfcraft.R;
 import fr.cerfcraft.model.Mission;
 
 public class MainActivity extends AppCompatActivity {
-    private FirebaseFirestore db = FirebaseFirestore.getInstance();
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        DocumentReference docRef = db.collection("missions").document("oHO89WngEDDSoDoZxsbD");
-        BasicDAO dao = new BasicDAO() ;
-        Map<String, Object> map = dao.getDocumentsFromBD(docRef);
-        System.out.println("la map vaut : " + map);
-        Mission mission = new Mission();
-        System.out.println("Les missions fonctionnent " + mission.getMissionList().isEmpty());
-//        System.out.println("TEEEEEEEEEEEEEEEEEEEEEEEEEEESSSSSSSSSSSSSSSSSSSSSSSSSTTTTTTTTTTTTTTT");
-//        System.out.println("est que map est rempli ? " + map.equals(null) + " sinon vaut : " + map);
-//        //map.forEach((key,value) -> System.out.print("test"));
+
         final int listButtonId[] = {
                 R.id.buttonCraft,
                 R.id.buttonBiomes,
@@ -80,6 +71,8 @@ public class MainActivity extends AppCompatActivity {
                 NotifsActivity.class
         };
 
+
+        // Bind manuel des boutons sur leurs vues respectives
         for (int i=0; i<listButtonId.length; i++){
             Button activityToAcess = findViewById(listButtonId[i]);
             switch(i){
@@ -133,7 +126,5 @@ public class MainActivity extends AppCompatActivity {
                     break;
             }
         }
-
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
     }
 }
