@@ -45,6 +45,10 @@
             android:name=".WritingNotesActivity"
             android:exported="true"/>
         <activity
+            android:name=".ShowingNotesActivity"
+            android:exported="true"
+            tools:ignore="Instantiatable" />
+        <activity
             android:name=".activity.MainActivity"
             android:exported="true">
 
