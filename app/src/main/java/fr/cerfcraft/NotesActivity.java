@@ -1,5 +1,6 @@
 package fr.cerfcraft;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -16,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import fr.cerfcraft.activity.AppDataBase;
+import fr.cerfcraft.activity.MainActivity;
 import fr.cerfcraft.activity.Note;
 import fr.cerfcraft.activity.NoteDao;
 import fr.cerfcraft.adapter.NoteAdapter;
@@ -33,6 +35,14 @@ public class NotesActivity extends AppCompatActivity {
     //}
 
 
+    @Override
+    public void onBackPressed(){
+        //super.onBackPressed();
+        Intent intent = new Intent(this, MainActivity.class );
+        startActivity(intent);
+    }
+
+
 
 
 
@@ -40,6 +50,7 @@ public class NotesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notes);
+
 
 
         final int listButtonId[] = {
