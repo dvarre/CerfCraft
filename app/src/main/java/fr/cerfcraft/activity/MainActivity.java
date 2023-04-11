@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     private boolean test = false;
-    public String[] activitys = {"Craft", "Biome", "Item", "Mob", "Cuisson", "Mission", "Notes", "Notif"};
+    public String[] activitys = {"", "Craft", "Biome", "Item", "Mob", "Cuisson", "Mission", "Notes", "Notif"};
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -142,7 +142,6 @@ public class MainActivity extends AppCompatActivity {
             ArrayAdapter<String> adapter = new ArrayAdapter<String>(MainActivity.this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, activitys);
             adapter.setDropDownViewResource(androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
             sp.setAdapter(adapter);
-
             sp.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -188,6 +187,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
             default:
                 intent = null;
+                test = false;
                 break;
         }
         if (test) {
