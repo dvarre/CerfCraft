@@ -1,5 +1,8 @@
 package fr.cerfcraft.model;
 
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+
 import java.util.Collection;
 
 public class Mob {
@@ -14,7 +17,7 @@ public class Mob {
     String image; //ok
     //String description;
     //Collection<Loot> loots;
-
+    CollectionReference loots;
 
     public void setId(int id) {
         this.id = id;
@@ -50,6 +53,10 @@ public class Mob {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public void setLoots(CollectionReference loots) {
+        this.loots = loots;
     }
 
 //    public String getDescription() {
@@ -96,10 +103,11 @@ public class Mob {
         return image;
     }
 
+    public CollectionReference getLoots() {
+        return loots;
+    }
 
-
-
-    //    public Collection<Loot> getLoots() {
+//    public Collection<Loot> getLoots() {
 //        return loots;
 //    }
 }

@@ -9,4 +9,6 @@
     <string name="mobs_menu">Mobs</string>
     <string name="cuisson_menu">Cuisson</string>
     <string name="missions_menu">Missions</string>
+    <string name="deep_links">Lien(s) associé(s) à cette page</string>
+    <string name="loots_section">Loots</string>
 </resources>

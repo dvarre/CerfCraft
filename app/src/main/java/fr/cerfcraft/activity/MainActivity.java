@@ -59,15 +59,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        DocumentReference docRef = db.collection("missions").document("oHO89WngEDDSoDoZxsbD");
-        BasicDAO dao = new BasicDAO() ;
-        Map<String, Object> map = dao.getDocumentsFromBD(docRef);
-        System.out.println("la map vaut : " + map);
-        Mission mission = new Mission();
-        System.out.println("Les missions fonctionnent " + mission.getMissionList().isEmpty());
-//        System.out.println("TEEEEEEEEEEEEEEEEEEEEEEEEEEESSSSSSSSSSSSSSSSSSSSSSSSSTTTTTTTTTTTTTTT");
-//        System.out.println("est que map est rempli ? " + map.equals(null) + " sinon vaut : " + map);
-//        //map.forEach((key,value) -> System.out.print("test"));
+
         final int listButtonId[] = {
                 R.id.buttonCraft,
                 R.id.buttonBiomes,
@@ -89,6 +81,8 @@ public class MainActivity extends AppCompatActivity {
                 NotifsActivity.class
         };
 
+
+        // Bind manuel des boutons sur leurs vues respectives
         for (int i=0; i<listButtonId.length; i++){
             Button activityToAcess = findViewById(listButtonId[i]);
             switch(i){
@@ -163,8 +157,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
         }
-
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
     }
 
     public void Switch(String value) {
