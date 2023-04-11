@@ -5,23 +5,30 @@
       <map>
         <entry key="..\:/CerfCraft/app/src/main/res/layout/activity_biome_info.xml" value="0.4182692307692308" />
         <entry key="..\:/CerfCraft/app/src/main/res/layout/activity_biomes.xml" value="0.25" />
-        <entry key="..\:/CerfCraft/app/src/main/res/layout/activity_craft.xml" value="0.176" />
+        <entry key="..\:/CerfCraft/app/src/main/res/layout/activity_craft.xml" value="0.152" />
         <entry key="..\:/CerfCraft/app/src/main/res/layout/activity_craft_item.xml" value="0.264" />
-        <entry key="..\:/CerfCraft/app/src/main/res/layout/activity_cuisson.xml" value="0.25" />
-        <entry key="..\:/CerfCraft/app/src/main/res/layout/activity_item_info.xml" value="0.1015625" />
+        <entry key="..\:/CerfCraft/app/src/main/res/layout/activity_cuisson.xml" value="0.536" />
+        <entry key="..\:/CerfCraft/app/src/main/res/layout/activity_item_info.xml" value="0.264" />
         <entry key="..\:/CerfCraft/app/src/main/res/layout/activity_items.xml" value="0.2" />
-        <entry key="..\:/CerfCraft/app/src/main/res/layout/activity_main.xml" value="0.264" />
-        <entry key="..\:/CerfCraft/app/src/main/res/layout/activity_mission_info.xml" value="0.4" />
+        <entry key="..\:/CerfCraft/app/src/main/res/layout/activity_main.xml" value="0.176" />
+        <entry key="..\:/CerfCraft/app/src/main/res/layout/activity_mission_info.xml" value="0.176" />
         <entry key="..\:/CerfCraft/app/src/main/res/layout/activity_missions.xml" value="0.25" />
         <entry key="..\:/CerfCraft/app/src/main/res/layout/activity_mob_info.xml" value="0.152" />
         <entry key="..\:/CerfCraft/app/src/main/res/layout/activity_mobs.xml" value="0.25" />
-        <entry key="..\:/CerfCraft/app/src/main/res/layout/activity_notes.xml" value="0.152" />
+        <entry key="..\:/CerfCraft/app/src/main/res/layout/activity_note.xml" value="0.6" />
+        <entry key="..\:/CerfCraft/app/src/main/res/layout/activity_notes.xml" value="0.264" />
+        <entry key="..\:/CerfCraft/app/src/main/res/layout/activity_notifs.xml" value="0.2" />
+        <entry key="..\:/CerfCraft/app/src/main/res/layout/appbar.xml" value="0.29743589743589743" />
         <entry key="..\:/CerfCraft/app/src/main/res/layout/biome.xml" value="0.25" />
         <entry key="..\:/CerfCraft/app/src/main/res/layout/craft_list.xml" value="0.24895833333333334" />
         <entry key="..\:/CerfCraft/app/src/main/res/layout/item_list.xml" value="0.10885416666666667" />
         <entry key="..\:/CerfCraft/app/src/main/res/layout/link.xml" value="0.2" />
         <entry key="..\:/CerfCraft/app/src/main/res/layout/mission_list.xml" value="0.1" />
         <entry key="..\:/CerfCraft/app/src/main/res/layout/mob_list.xml" value="0.24895833333333334" />
+        <entry key="..\:/CerfCraft/app/src/main/res/layout/search_item.xml" value="0.1" />
+        <entry key="..\:/CerfCraft/app/src/main/res/layout/search_result.xml" value="0.24895833333333334" />
+        <entry key="..\:/CerfCraft/app/src/main/res/layout/writingnote.xml" value="0.14322916666666666" />
+        <entry key="..\:/CerfCraft/app/src/main/res/menu/menu.xml" value="0.264" />
       </map>
     </option>
   </component>

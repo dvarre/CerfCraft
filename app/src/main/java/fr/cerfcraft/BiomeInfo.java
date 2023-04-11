@@ -3,14 +3,19 @@ package fr.cerfcraft;
 import static android.content.ContentValues.TAG;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.appcompat.widget.Toolbar;
+
 
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -34,6 +39,8 @@ import fr.cerfcraft.model.Item;
 import fr.cerfcraft.model.Mob;
 
 public class BiomeInfo extends AppCompatActivity {
+    private Toolbar toolbar;
+
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     CollectionReference ref = db.collection("biomes");
     LinkBiomeAdapter linkBiomeAdapter;
@@ -50,6 +57,11 @@ public class BiomeInfo extends AppCompatActivity {
 
 
         // Chargement de l'élement séléctionné depuis la vue précédente
+        toolbar=findViewById((R.id.include_biome_info));
+        setSupportActionBar(toolbar);
+        ActionBar actionBar=getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
         Intent intent = getIntent();
         if (intent != null){
             String id ="";
@@ -132,5 +144,12 @@ public class BiomeInfo extends AppCompatActivity {
         }
         System.out.println("keyclear : " + keyClear);
         return keyClear;
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater=getMenuInflater();
+        inflater.inflate(R.menu.menu,menu);
+        return true;
     }
 }

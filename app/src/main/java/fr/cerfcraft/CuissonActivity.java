@@ -1,6 +1,8 @@
 package fr.cerfcraft;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.NotificationCompat;
 
 import android.app.NotificationChannel;
@@ -10,6 +12,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.widget.Button;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -17,6 +21,7 @@ import android.widget.TextView;
 import fr.cerfcraft.activity.MainActivity;
 
 public class CuissonActivity extends AppCompatActivity {
+    private Toolbar toolbar;
 
     public static boolean cuissonEnCours = false;
     protected NotificationManager notificationManager;
@@ -38,6 +43,22 @@ public class CuissonActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cuisson);
+        toolbar=findViewById((R.id.include_cuisson));
+        setSupportActionBar(toolbar);
+        ActionBar actionBar=getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            CharSequence name = "Notification cuisson";
+            String description = "Le channel de notifs de la cuisson";
+            int importance = NotificationManager.IMPORTANCE_DEFAULT;
+            NotificationChannel channel = new NotificationChannel("1", name, importance);
+            channel.setDescription(description);
+            // Register the channel with the system; you can't change the importance
+            // or other notification behaviors after this
+            notificationManager = getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(channel);
+        }
         button = (Button)findViewById(R.id.button_cuisson_start);
         button.setOnClickListener(v -> startNotif());
         number_furnaces = (TextView)findViewById(R.id.number_furnace);
@@ -74,5 +95,10 @@ public class CuissonActivity extends AppCompatActivity {
         }
     }
 
-
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater=getMenuInflater();
+        inflater.inflate(R.menu.menu,menu);
+        return true;
+    }
 }

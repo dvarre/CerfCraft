@@ -11,4 +11,5 @@
     <string name="missions_menu">Missions</string>
     <string name="deep_links">Lien(s) associé(s) à cette page</string>
     <string name="loots_section">Loots</string>
+    <string name="notifications_titre">Configuration des notifications de temps de jeu</string>
 </resources>

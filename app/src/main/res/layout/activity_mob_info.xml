@@ -6,24 +6,28 @@
     android:layout_height="match_parent"
     tools:context=".MobInfo">
 
+    <include
+        android:id="@+id/include_mob_info"
+        layout="@layout/appbar"/>
+
     <TextView
         android:id="@+id/titre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="75dp"
         android:text="TextView"
         app:layout_constraintEnd_toStartOf="@+id/image"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/include_mob_info" />
 
     <ImageView
         android:id="@+id/image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="30dp"
+        android:layout_marginTop="26dp"
+        android:layout_marginEnd="26dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/include_mob_info"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView

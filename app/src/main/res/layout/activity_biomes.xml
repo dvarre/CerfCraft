@@ -6,13 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".BiomesActivity">
 
+    <include
+        android:id="@+id/include_biomes"
+        layout="@layout/appbar" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/biome_list"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="415dp"
+        android:layout_height="674dp"
         android:layout_margin="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.473"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/include_biomes" />
 </androidx.constraintlayout.widget.ConstraintLayout>

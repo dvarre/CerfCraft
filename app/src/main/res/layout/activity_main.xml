@@ -19,6 +19,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Spinner
+        android:id="@+id/spinner2"
+        android:layout_width="37dp"
+        android:layout_height="20dp"
+        android:background="@android:drawable/ic_menu_sort_by_size"
+        app:layout_constraintBottom_toTopOf="@+id/toolbar"
+        app:layout_constraintEnd_toStartOf="@+id/toolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <Button
         android:id="@+id/buttonNotes"
         android:layout_width="139dp"
@@ -27,10 +37,8 @@
         android:layout_marginTop="44dp"
         android:drawableTop="@drawable/logo_notes"
         android:text="@string/notes_menu"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonCuisson"
-        app:layout_constraintVertical_bias="0.157" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonCuisson" />
 
     <Button
         android:id="@+id/buttonMissions"
@@ -109,12 +117,10 @@
         app:layout_constraintStart_toEndOf="@+id/buttonCraft"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Spinner
-        android:id="@+id/spinner2"
-        android:layout_width="37dp"
-        android:layout_height="20dp"
-        android:background="@android:drawable/ic_menu_sort_by_size"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp" />
+    <include
+        layout="@layout/appbar"/>
+    <include
+        layout="@layout/search_result"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
