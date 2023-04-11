@@ -45,7 +45,7 @@ public class WritingNotesActivity extends AppCompatActivity {
                     activityToAcess.setBackgroundColor(Color.BLUE);
                     activityToAcess.setOnClickListener(v -> {
 
-                        new Thread(new Runnable() {
+                        Thread t3 = new Thread(new Runnable() {
                             @Override
                             public void run() {
                                 AppDataBase db = Room.databaseBuilder(getApplicationContext(),
@@ -57,7 +57,13 @@ public class WritingNotesActivity extends AppCompatActivity {
                                                 descEditText.getText().toString()));
 
                             }
-                        }).start();
+                        });
+                        t3.start();
+                        try {
+                            t3.join();
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
                         Toast.makeText(WritingNotesActivity.this, "Note ajoutée avec succes", Toast.LENGTH_SHORT).show();
 
 

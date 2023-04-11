@@ -78,7 +78,7 @@ public class ShowingNotesActivity extends AppCompatActivity {
                     activityToAcess.setOnClickListener(v -> {
 
 
-                        new Thread(new Runnable() {
+                        Thread t2 = new Thread(new Runnable() {
                             @Override
                             public void run() {
                                 AppDataBase db = Room.databaseBuilder(getApplicationContext(),
@@ -90,7 +90,13 @@ public class ShowingNotesActivity extends AppCompatActivity {
                                 note.setNoteTxt(descEditText.getText().toString());
                                 noteDao.insert(note);
                             }
-                        }).start();
+                        });
+                        t2.start();
+                        try {
+                            t2.join();
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
                         Toast.makeText(ShowingNotesActivity.this, "Note modifié avec succes", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(this, NotesActivity.class );
                         startActivity(intent);
@@ -102,7 +108,7 @@ public class ShowingNotesActivity extends AppCompatActivity {
 
 
 
-                        new Thread(new Runnable() {
+                        Thread t1 = new Thread(new Runnable() {
                             @Override
                             public void run() {
                                 AppDataBase db = Room.databaseBuilder(getApplicationContext(),
@@ -112,9 +118,14 @@ public class ShowingNotesActivity extends AppCompatActivity {
                                 noteDao.delete(note);
 
                             }
-                        }).start();
+                        });
                         Toast.makeText(ShowingNotesActivity.this, "Note supprimée avec succes", Toast.LENGTH_SHORT).show();
-
+                        t1.start();
+                        try {
+                            t1.join();
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
 
 
                         Intent intent = new Intent(this, NotesActivity.class );

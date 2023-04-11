@@ -71,7 +71,7 @@ public class NotesActivity extends AppCompatActivity {
 
 
         //RecyclerView finalRecyclerView = recyclerView;
-        new Thread(new Runnable() {
+        Thread t4 = new Thread(new Runnable() {
             @Override
             public void run() {
                 AppDataBase db = Room.databaseBuilder(getApplicationContext(),
@@ -86,11 +86,13 @@ public class NotesActivity extends AppCompatActivity {
                     Log.d("note","id = "+note.getId()+"name = "+note.getName()+" | message = "+note.getNoteTxt());
                 }
             }
-        }).start();
-
-
-
-
+        });
+        t4.start();
+        try {
+            t4.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
 
         for (int i=0; i<listButtonId.length; i++){
