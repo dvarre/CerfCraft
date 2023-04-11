@@ -39,6 +39,9 @@
             android:name=".CuissonActivity"
             android:exported="false" />
         <activity
+            android:name=".CuissonEnCoursActivity"
+            android:exported="false" />
+        <activity
             android:name=".MobsActivity"
             android:exported="false" />
         <activity

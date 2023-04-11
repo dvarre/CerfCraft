@@ -4,13 +4,19 @@ import static android.content.ContentValues.TAG;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -45,6 +51,9 @@ import fr.cerfcraft.model.Mission;
 
 public class MainActivity extends AppCompatActivity {
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+    private boolean test = false;
+    public String[] activitys = {"Craft", "Biome", "Item", "Mob", "Cuisson", "Mission", "Notes", "Notif"};
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -132,8 +141,67 @@ public class MainActivity extends AppCompatActivity {
                     });
                     break;
             }
+
+            Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+            setSupportActionBar(toolbar);
+            Spinner sp = (Spinner) findViewById(R.id.spinner2);
+            ArrayAdapter<String> adapter = new ArrayAdapter<String>(MainActivity.this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, activitys);
+            adapter.setDropDownViewResource(androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
+            sp.setAdapter(adapter);
+
+            sp.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    String value = adapterView.getItemAtPosition(i).toString();
+                    test = true;
+                    Switch(value);
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+
+                }
+            });
         }
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
+    }
+
+    public void Switch(String value) {
+        Intent intent = null;
+        switch (value) {
+            case "Biome":
+                intent = new Intent(this, BiomesActivity.class );
+                break;
+            case "Item":
+                intent = new Intent(this, ItemsActivity.class );
+                break;
+            case "Mob":
+                intent = new Intent(this, MobsActivity.class );
+                break;
+            case "Cuisson":
+                intent = new Intent(this, CuissonActivity.class);
+                break;
+            case "Mission":
+                intent = new Intent(this, MissionsActivity.class);
+                break;
+            case "Notes":
+                intent = new Intent(this, NotesActivity.class);
+                break;
+            case "Notif":
+                intent = new Intent(this, NotifsActivity.class);
+                break;
+            case "Craft":
+                intent = new Intent(this, CraftActivity.class);
+                break;
+            default:
+                intent = null;
+                break;
+        }
+        if (test) {
+            startActivity(intent);
+            test = false;
+        }
+
     }
 }

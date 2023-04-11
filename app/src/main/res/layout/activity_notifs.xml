@@ -10,44 +10,58 @@
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="333dp"
+        android:layout_marginTop="18dp"
         android:layout_marginEnd="32dp"
-        android:layout_marginBottom="38dp"
+        android:layout_marginBottom="416dp"
         android:text="Lancer une notification"
-        app:layout_constraintBottom_toTopOf="@+id/timeNotif"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.307"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/timeNotif" />
 
     <EditText
         android:id="@+id/timeNotif"
-        android:layout_width="182dp"
-        android:layout_height="64dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="38dp"
+        android:layout_width="127dp"
+        android:layout_height="62dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="307dp"
+        android:layout_marginBottom="35dp"
         android:ems="10"
         android:inputType="number"
         android:text="10"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/button_start_notif"
         app:layout_constraintEnd_toStartOf="@+id/textView2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_start_notif" />
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="156dp"
         android:layout_height="21dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="96dp"
+        android:layout_marginTop="49dp"
         android:layout_marginEnd="58dp"
-        android:layout_marginBottom="300dp"
-        android:text="Secondes  avant la notif"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="59dp"
+        android:text="Minutes  avant la notif"
+        app:layout_constraintBottom_toTopOf="@+id/button_start_notif"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/timeNotif"
-        app:layout_constraintTop_toBottomOf="@+id/button_start_notif" />
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="157dp"
+        android:layout_marginTop="118dp"
+        android:layout_marginEnd="196dp"
+        android:layout_marginBottom="33dp"
+        android:text="Planifier un rappel après un certain nombre de minutes de jeu."
+        app:layout_constraintBottom_toTopOf="@+id/timeNotif"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.452"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
