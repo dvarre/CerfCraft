@@ -63,7 +63,7 @@ public class LinkBiomeAdapter extends RecyclerView.Adapter<LinkBiomeAdapter.Link
         String uri="";
 
         System.out.println("ICIIII TEST : ");
-        System.out.println("ICIIII : " + object.getClass().equals(Biome.class));
+        System.out.println("ICIIII : " + object.getClass().equals(Item.class));
 
         if (object.getClass() == Biome.class){
             Biome newObject = (Biome) object;
@@ -81,6 +81,7 @@ public class LinkBiomeAdapter extends RecyclerView.Adapter<LinkBiomeAdapter.Link
                                     Log.d(TAG, document.getId() + " => " + document.getData());
                                     Intent intent = new Intent(context, BiomeInfo.class);
                                     intent.putExtra("idToDisplay", document.getId());
+                                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                     context.startActivity(intent);
                                 }
                             }
@@ -105,6 +106,7 @@ public class LinkBiomeAdapter extends RecyclerView.Adapter<LinkBiomeAdapter.Link
                                     Log.d(TAG, document.getId() + " => " + document.getData());
                                     Intent intent = new Intent(context, CraftItem.class);
                                     intent.putExtra("idToDisplay", document.getId());
+                                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                     context.startActivity(intent);
                                 }
                             }
@@ -129,6 +131,7 @@ public class LinkBiomeAdapter extends RecyclerView.Adapter<LinkBiomeAdapter.Link
                                     Log.d(TAG, document.getId() + " => " + document.getData());
                                     Intent intent = new Intent(context, ItemInfo.class);
                                     intent.putExtra("idToDisplay", document.getId());
+                                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                     context.startActivity(intent);
                                 }
                             }
@@ -153,6 +156,7 @@ public class LinkBiomeAdapter extends RecyclerView.Adapter<LinkBiomeAdapter.Link
                                     Log.d(TAG, document.getId() + " => " + document.getData());
                                     Intent intent = new Intent(context, MissionInfo.class);
                                     intent.putExtra("idToDisplay", document.getId());
+                                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                     context.startActivity(intent);
                                 }
                             }
@@ -177,6 +181,7 @@ public class LinkBiomeAdapter extends RecyclerView.Adapter<LinkBiomeAdapter.Link
                                     Log.d(TAG, document.getId() + " => " + document.getData());
                                     Intent intent = new Intent(context, MobInfo.class);
                                     intent.putExtra("idToDisplay", document.getId());
+                                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                     context.startActivity(intent);
                                 }
                             }

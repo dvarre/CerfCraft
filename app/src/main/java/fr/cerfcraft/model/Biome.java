@@ -14,7 +14,7 @@ public class Biome {
     String rarity;
     float temperature;
     String description;
-    List<DocumentReference> links = new ArrayList<>();
+    List<String> links = new ArrayList<>();
 
     public int getId() {
         return id;
@@ -44,8 +44,12 @@ public class Biome {
         return description;
     }
 
-    public List<DocumentReference> getLinks() {
+    public List<String> getLinks() {
         return links;
+    }
+
+    public void setLinks(List<String> links) {
+        this.links = links;
     }
 
     public void setId(int id) {
@@ -76,7 +80,4 @@ public class Biome {
         this.description = description;
     }
 
-    public void setLinks(List<DocumentReference> links) {
-        this.links = links;
-    }
 }
