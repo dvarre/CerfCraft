@@ -1,15 +1,17 @@
 package fr.cerfcraft.model;
 
+import com.google.firebase.firestore.DocumentReference;
+
 public class Loot {
-    Item item;
+    DocumentReference item;
     String quantity;
     float probability;
 
-    public Item getItem() {
+    public DocumentReference getItem() {
         return item;
     }
 
-    public void setItem(Item item) {
+    public void setItem(DocumentReference item) {
         this.item = item;
     }
 

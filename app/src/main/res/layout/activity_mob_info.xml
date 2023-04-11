@@ -35,4 +35,25 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/image" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/links_mob"
+        android:layout_width="361dp"
+        android:layout_height="358dp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linkText_mob" />
+
+    <TextView
+        android:id="@+id/linkText_mob"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/description" />
 </androidx.constraintlayout.widget.ConstraintLayout>

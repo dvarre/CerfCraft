@@ -48,7 +48,10 @@ public class MobsActivity extends AppCompatActivity {
                     @Override
                     public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                         for(QueryDocumentSnapshot snapshot : queryDocumentSnapshots){
-                            mobList.add(snapshot.toObject(Mob.class));
+                            Mob mob = snapshot.toObject(Mob.class);
+                            CollectionReference lootsRef = snapshot.getReference().collection("loots");
+                            mob.setLoots(lootsRef);
+                            mobList.add(mob);
                         }
                         recyclerView.setAdapter(mobAdapter);
                     }
