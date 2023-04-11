@@ -1,25 +1,26 @@
 package fr.cerfcraft;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import fr.cerfcraft.WritingNotesActivity;
 import fr.cerfcraft.activity.AppDataBase;
+import fr.cerfcraft.activity.MainActivity;
 import fr.cerfcraft.activity.Note;
 import fr.cerfcraft.activity.NoteDao;
-import fr.cerfcraft.adapter.BiomeAdapter;
 import fr.cerfcraft.adapter.NoteAdapter;
-import fr.cerfcraft.model.Biome;
 
 public class NotesActivity extends AppCompatActivity {
 
@@ -28,10 +29,29 @@ public class NotesActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
 
+    //public static void StartShowingActivity(NotesActivity notesActivity){
+       // Intent intent = new Intent(, ShowingNotesActivity.class);
+        //notesActivity.startActivity(intent);
+    //}
+
+
+    @Override
+    public void onBackPressed(){
+        //super.onBackPressed();
+        Intent intent = new Intent(this, MainActivity.class );
+        startActivity(intent);
+    }
+
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notes);
+
+
 
         final int listButtonId[] = {
                 R.id.addNote
@@ -63,10 +83,12 @@ public class NotesActivity extends AppCompatActivity {
                 recyclerView.setAdapter(noteAdapter);
                 Log.d("Debut Notes","");
                 for (Note note: notes) {
-                    Log.d("note","name = "+note.getName()+" | message = "+note.getNoteTxt());
+                    Log.d("note","id = "+note.getId()+"name = "+note.getName()+" | message = "+note.getNoteTxt());
                 }
             }
         }).start();
+
+
 
 
 
@@ -75,11 +97,9 @@ public class NotesActivity extends AppCompatActivity {
             Button activityToAcess = findViewById(listButtonId[i]);
             switch(i){
                 default:
+
+                    activityToAcess.setBackgroundColor(Color.BLUE);
                     activityToAcess.setOnClickListener(v -> {
-
-
-
-                        
                         Intent intent = new Intent(this, WritingNotesActivity.class );
                         startActivity(intent);
                     });

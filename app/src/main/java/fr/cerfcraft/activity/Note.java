@@ -17,6 +17,9 @@ public class Note{
 
     @PrimaryKey
     @NonNull
+    private int id;
+
+    @ColumnInfo(name = "name")
     private String name;
 
     @ColumnInfo(name = "icone")
@@ -25,10 +28,13 @@ public class Note{
     @ColumnInfo(name = "noteTxt")
     private String noteTxt;
 
-    public Note(String name, String icone, String noteTxt){
+    public Note(int id, String name, String icone, String noteTxt){
+        this.id = id;
         this.name = name;
         this.icone = icone;
         this.noteTxt = noteTxt;
+
+
     }
 
 
@@ -45,5 +51,11 @@ public class Note{
     public String getIcone() {return icone;}
     public void setIcone(String icone) {
         this.icone = icone;
+    }
+
+    public int getId() {return id;}
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
