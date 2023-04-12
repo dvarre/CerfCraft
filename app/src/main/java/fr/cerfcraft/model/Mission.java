@@ -4,10 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Mission {
-    static public List<Mission> missionList = new ArrayList<>();
-    String image;
     String name;
     String description;
+
+    String image;
+
     int id;
 
     public int getId() {
@@ -18,21 +19,12 @@ public class Mission {
         this.id = id;
     }
 
-    public Mission(String image, String name, String description) {
-        this.image = image;
+    public Mission(String name, String description) {
         this.name = name;
         this.description = description;
     }
 
     public Mission() {
-    }
-
-    public static List<Mission> getMissionList() {
-        return missionList;
-    }
-
-    public static void setMissionList(List<Mission> missionList) {
-        Mission.missionList = missionList;
     }
 
     public String getImage() {
@@ -46,6 +38,7 @@ public class Mission {
     public String getDescription() {
         return description;
     }
+
 
     public void setImage(String image) {
         this.image = image;

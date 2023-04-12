@@ -4,10 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ItemsActivity">
+    tools:context=".ItemsActivity"
+    android:background="#7F1A6B2D">
+
+    <include
+        android:id="@+id/include_items"
+        layout="@layout/appbar"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/item_list"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_width="410dp"
+        android:layout_height="675dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/include_items" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,37 +4,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CuissonActivity">
+    tools:context=".CuissonActivity"
+    android:background="#7F1A6B2D">
+
+    <include
+        android:id="@+id/include_cuisson"
+        layout="@layout/appbar"/>
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="323dp"
-        android:layout_marginBottom="688dp"
-        android:text="Indiquer le nombre d’item  à cuire"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="239dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="30dp"
+        android:text="Indiquer le nombre d’item à cuire :"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        tools:text="Indiquer le nombre d’item  à cuire" />
+        app:layout_constraintTop_toBottomOf="@+id/include_cuisson" />
 
     <EditText
         android:id="@+id/number_items"
         android:layout_width="89dp"
         android:layout_height="51dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="307dp"
-        android:layout_marginBottom="636dp"
+        android:layout_marginTop="30dp"
         android:ems="10"
         android:inputType="number"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.475"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3"
         tools:text="1" />
@@ -57,73 +52,42 @@
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="38dp"
-        android:layout_marginTop="31dp"
-        android:layout_marginEnd="315dp"
-        android:layout_marginBottom="586dp"
-        android:text="Indiquer le nombre de four  utilisé"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="30dp"
+        android:text="Indiquer le nombre de four utilisé :"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.051"
+        app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/number_items"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/number_items" />
 
     <EditText
         android:id="@+id/number_furnace"
         android:layout_width="81dp"
         android:layout_height="48dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="306dp"
-        android:layout_marginBottom="518dp"
+        android:layout_marginTop="30dp"
         android:ems="10"
         android:inputType="number"
         android:text="1"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.475"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
-
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="45dp"
-        android:layout_marginTop="37dp"
-        android:layout_marginEnd="226dp"
-        android:layout_marginBottom="39dp"
-        android:text="Fours"
-        app:layout_constraintBottom_toTopOf="@+id/textView8"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/number_furnace"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <TextView
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="29dp"
-        android:layout_marginEnd="190dp"
-        android:layout_marginBottom="2dp"
-        android:text="Indiquer le type de four  utilisé"
-        app:layout_constraintBottom_toTopOf="@+id/type_furnace"
+        android:layout_marginTop="30dp"
+        android:text="Indiquer le type de four utilisé :"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/number_furnace" />
 
     <RadioGroup
         android:id="@+id/type_furnace"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginEnd="255dp"
-        android:layout_marginBottom="284dp"
+        android:layout_width="147dp"
+        android:layout_height="145dp"
+        android:layout_marginTop="30dp"
         android:checkedButton="@id/fourneau_button"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView8">
@@ -151,15 +115,9 @@
         android:id="@+id/button_cuisson_start"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="23dp"
-        android:layout_marginEnd="50dp"
-        android:layout_marginBottom="191dp"
+        android:layout_marginTop="30dp"
         android:text="Lancer la cuisson"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/type_furnace"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/type_furnace" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,4 +9,16 @@
     <string name="mobs_menu">Mobs</string>
     <string name="cuisson_menu">Cuisson</string>
     <string name="missions_menu">Missions</string>
+    <string name="notifications_titre">Configuration des notifications de temps de jeu</string>
+    <string name="deep_links">Lien(s) associé(s) à cette page :</string>
+    <string name="loots_section">Loots</string>
+    <string name="id_txt_view">ID :</string>
+    <string name="damages_txt_view">Dégâts :</string>
+    <string name="type_txt_view">Type :</string>
+    <string name="description_txt_view">Description :</string>
+    <string name="durability_txt_view">Durabilité :</string>
+    <string name="temperature_txt_view">Température :</string>
+    <string name="rarity_txt_view">Rareté :</string>
+    <string name="life_txt_view">Vie :</string>
+    <string name="exp_txt_view">Expérience :</string>
 </resources>

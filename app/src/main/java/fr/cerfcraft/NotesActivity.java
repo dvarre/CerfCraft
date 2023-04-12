@@ -1,7 +1,9 @@
 package fr.cerfcraft;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
@@ -10,6 +12,8 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -23,6 +27,7 @@ import fr.cerfcraft.activity.NoteDao;
 import fr.cerfcraft.adapter.NoteAdapter;
 
 public class NotesActivity extends AppCompatActivity {
+    private Toolbar toolbar;
 
     NoteAdapter noteAdapter;
     List<Note> notes;
@@ -51,7 +56,10 @@ public class NotesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notes);
 
-
+        toolbar=findViewById((R.id.include_notes));
+        setSupportActionBar(toolbar);
+        ActionBar actionBar=getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
         final int listButtonId[] = {
                 R.id.addNote
@@ -71,7 +79,7 @@ public class NotesActivity extends AppCompatActivity {
 
 
         //RecyclerView finalRecyclerView = recyclerView;
-        new Thread(new Runnable() {
+        Thread t4 = new Thread(new Runnable() {
             @Override
             public void run() {
                 AppDataBase db = Room.databaseBuilder(getApplicationContext(),
@@ -86,11 +94,13 @@ public class NotesActivity extends AppCompatActivity {
                     Log.d("note","id = "+note.getId()+"name = "+note.getName()+" | message = "+note.getNoteTxt());
                 }
             }
-        }).start();
-
-
-
-
+        });
+        t4.start();
+        try {
+            t4.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
 
         for (int i=0; i<listButtonId.length; i++){
@@ -106,8 +116,12 @@ public class NotesActivity extends AppCompatActivity {
                     break;
             }
         }
+    }
 
-
-
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater=getMenuInflater();
+        inflater.inflate(R.menu.menu,menu);
+        return true;
     }
 }
