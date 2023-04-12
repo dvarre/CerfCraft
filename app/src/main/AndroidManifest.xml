@@ -22,7 +22,7 @@
             android:screenOrientation="portrait"
             android:exported="false" />
         <activity
-            android:name=".MissionInfo"
+            android:name=".MissionCategoryInfo"
             android:screenOrientation="portrait"
             android:exported="false" />
         <activity
@@ -38,7 +38,7 @@
             android:screenOrientation="portrait"
             android:exported="false" />
         <activity
-            android:name=".MissionsActivity"
+            android:name=".MissionCategoriesActivity"
             android:screenOrientation="portrait"
             android:exported="false" />
         <activity

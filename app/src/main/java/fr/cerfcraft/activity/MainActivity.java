@@ -1,47 +1,23 @@
 package fr.cerfcraft.activity;
 
-import static android.content.ContentValues.TAG;
-import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
 
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Button;
-import android.widget.Toast;
-
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.FirebaseFirestore;
-
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.FirebaseFirestore;
-
-import java.util.ArrayList;
-import java.util.Map;
 
 import fr.cerfcraft.BiomesActivity;
 import fr.cerfcraft.CraftActivity;
 import fr.cerfcraft.CuissonActivity;
-import fr.cerfcraft.DAO.BasicDAO;
 import fr.cerfcraft.ItemsActivity;
 //import fr.cerfcraft.Manifest;
-import fr.cerfcraft.MissionsActivity;
+import fr.cerfcraft.MissionCategoriesActivity;
 import fr.cerfcraft.MobsActivity;
 import fr.cerfcraft.NotesActivity;
 import fr.cerfcraft.NotifsActivity;
 import fr.cerfcraft.R;
-import fr.cerfcraft.model.Mission;
 
 public class MainActivity extends AppCompatActivity {
     @RequiresApi(api = Build.VERSION_CODES.N)
@@ -66,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
                 ItemsActivity.class,
                 MobsActivity.class,
                 CuissonActivity.class,
-                MissionsActivity.class,
+                MissionCategoriesActivity.class,
                 NotesActivity.class,
                 NotifsActivity.class
         };
@@ -102,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case 5:
                     activityToAcess.setOnClickListener(v -> {
-                        Intent intent = new Intent(this, MissionsActivity.class);
+                        Intent intent = new Intent(this, MissionCategoriesActivity.class);
                         startActivity(intent);
                     });
                     break;

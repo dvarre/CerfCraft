@@ -26,13 +26,12 @@ import java.util.List;
 import fr.cerfcraft.BiomeInfo;
 import fr.cerfcraft.CraftItem;
 import fr.cerfcraft.ItemInfo;
-import fr.cerfcraft.MissionInfo;
+import fr.cerfcraft.MissionCategoryInfo;
 import fr.cerfcraft.MobInfo;
 import fr.cerfcraft.R;
 import fr.cerfcraft.model.Biome;
 import fr.cerfcraft.model.Craft;
 import fr.cerfcraft.model.Item;
-import fr.cerfcraft.model.Loot;
 import fr.cerfcraft.model.Mission;
 import fr.cerfcraft.model.Mob;
 
@@ -151,7 +150,7 @@ public class LinkBiomeAdapter extends RecyclerView.Adapter<LinkBiomeAdapter.Link
                             if (task.isSuccessful()) {
                                 for (QueryDocumentSnapshot document : task.getResult()) {
                                     Log.d(TAG, document.getId() + " => " + document.getData());
-                                    Intent intent = new Intent(context, MissionInfo.class);
+                                    Intent intent = new Intent(context, MissionCategoryInfo.class);
                                     intent.putExtra("idToDisplay", document.getId());
                                     context.startActivity(intent);
                                 }

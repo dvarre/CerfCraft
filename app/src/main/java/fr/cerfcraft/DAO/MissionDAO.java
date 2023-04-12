@@ -7,7 +7,7 @@ import fr.cerfcraft.model.Mission;
 
 public class MissionDAO {
 
-    public Mission HashToMissionObject(Map<String, Object> map){
+/*    public Mission HashToMissionObject(Map<String, Object> map){
         Mission mission = new Mission();
         for (HashMap.Entry<String, Object> entry : map.entrySet())
         {
@@ -25,5 +25,5 @@ public class MissionDAO {
         }
         mission.missionList.add(mission);
         return mission;
-    }
+    }*/
 }
