@@ -75,10 +75,11 @@
             android:exported="false" />
         <activity
             android:name=".WritingNotesActivity"
-            android:parentActivityName=".activity.MainActivity"
+            android:parentActivityName="NotesActivity"
             android:exported="true"/>
         <activity
             android:name=".ShowingNotesActivity"
+            android:parentActivityName="NotesActivity"
             android:exported="true"
             tools:ignore="Instantiatable" />
         <activity
