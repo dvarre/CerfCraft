@@ -1,5 +1,6 @@
 package fr.cerfcraft.activity;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
@@ -19,10 +20,17 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.Toast;
+
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.Map;
 
 import fr.cerfcraft.BiomesActivity;
 import fr.cerfcraft.CraftActivity;
 import fr.cerfcraft.CuissonActivity;
+import fr.cerfcraft.DAO.BasicDAO;
 import fr.cerfcraft.ItemsActivity;
 //import fr.cerfcraft.Manifest;
 import fr.cerfcraft.MissionCategoriesActivity;
@@ -58,13 +66,7 @@ public class MainActivity extends AppCompatActivity {
 
         searchRecyclerView = findViewById(R.id.search_recyclerView);
         //searchLayoutManager = new LinearLayoutManager(this);
-        System.out.println("test de null object " + searchLayoutManager==null);
         searchRecyclerView.setLayoutManager(searchLayoutManager);
-
-
-        DocumentReference docRef = db.collection("missions").document("oHO89WngEDDSoDoZxsbD");
-        BasicDAO dao = new BasicDAO() ;
-        Map<String, Object> map = dao.getDocumentsFromBD(docRef);
 
         //TODO Faire le bind à la place du switch
         final int listButtonId[] = {

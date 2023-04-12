@@ -26,7 +26,7 @@ import java.util.List;
 import fr.cerfcraft.adapter.MissionCategoryAdapter;
 import fr.cerfcraft.model.MissionCategory;
 
-public class MissionsActivity extends AppCompatActivity {
+public class MissionCategoriesActivity extends AppCompatActivity {
     private Toolbar toolbar;
 
     RecyclerView recyclerView;

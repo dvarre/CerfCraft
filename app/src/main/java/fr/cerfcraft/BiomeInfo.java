@@ -123,7 +123,7 @@ public class BiomeInfo extends AppCompatActivity {
         inflater.inflate(R.menu.menu,menu);
         return true;
     }
-}
+
     private void addObjectsToListToDisplay(List<String> referencelist, String collectionBD, Class testObj){
         for (int i=0; i<referencelist.size(); i++){
             if(referencelist.get(i) != null && referencelist.get(i)!="")
