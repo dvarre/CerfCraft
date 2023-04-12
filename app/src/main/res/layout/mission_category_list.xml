@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Button xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mission_button"
+    android:layout_width="match_parent"
+    android:layout_height="120dp"
+    android:layout_marginHorizontal="40dp"
+    android:layout_marginVertical="10dp"
+    android:drawableLeft="@drawable/logo_missions"
+    android:text="Mission"></Button>
