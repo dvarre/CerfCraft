@@ -17,7 +17,7 @@ import fr.cerfcraft.model.Mission;
 
 public class BasicDAO {
 
-    public Map<String, Object> getDocumentsFromBD(DocumentReference docRef){
+/*    public Map<String, Object> getDocumentsFromBD(DocumentReference docRef){
         final Map<String, Object>[] map = new Map[]{null};
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
@@ -44,5 +44,5 @@ public class BasicDAO {
         });
         System.out.println("Avant de sortir la map vaut : " + map[0]);
         return map[0];
-    }
+    }*/
 }

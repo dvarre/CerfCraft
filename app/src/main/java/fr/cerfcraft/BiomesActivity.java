@@ -75,8 +75,6 @@ public class BiomesActivity extends AppCompatActivity {
                         Log.e(TAG,"On Failure : ", e);
                     }
                 });
-
-
     }
 
     @Override

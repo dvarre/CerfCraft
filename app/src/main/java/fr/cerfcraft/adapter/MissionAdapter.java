@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -22,8 +23,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.List;
 
-import fr.cerfcraft.CraftItem;
-import fr.cerfcraft.MissionInfo;
+import fr.cerfcraft.MissionCategoryInfo;
 import fr.cerfcraft.R;
 import fr.cerfcraft.model.Mission;
 
@@ -31,8 +31,6 @@ public class MissionAdapter extends RecyclerView.Adapter<MissionAdapter.MissionV
 
     Context context;
     List<Mission> missions;
-    FirebaseFirestore db = FirebaseFirestore.getInstance();
-    CollectionReference ref = db.collection("missions");
 
     public MissionAdapter(Context context, List<Mission> missions) {
             this.context = context;
@@ -50,34 +48,10 @@ public class MissionAdapter extends RecyclerView.Adapter<MissionAdapter.MissionV
 
     @Override
     public void onBindViewHolder(@NonNull MissionViewHolder holder, int position) {
-            Mission mission = missions.get(position);
-            holder.missionButton.setText(mission.getName());
-            String uri = "@drawable/"+ mission.getImage();
-            int missionDrawableId = context.getResources().getIdentifier(uri,"drawable", context.getPackageName());
-            Log.d(TAG, String.valueOf(missionDrawableId));
-            Drawable missionDrawable = context.getResources().getDrawable(missionDrawableId);
-            missionDrawable.setBounds(0,0,390,300);
-            holder.missionButton.setCompoundDrawables(missionDrawable,null,null,null);
-
-            holder.missionButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    ref.whereEqualTo("id", mission.getId()).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                        @Override
-                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                            if (task.isSuccessful()) {
-                                for (QueryDocumentSnapshot document : task.getResult()) {
-                                    Log.d(TAG, document.getId() + " => " + document.getData());
-                                    Intent intent = new Intent(context, MissionInfo.class);
-                                    intent.putExtra("idToDisplay", document.getId());
-                                    context.startActivity(intent);
-                                }
-                            }
-                        }
-                    });
-                }
-            });
-            }
+        Mission mission = missions.get(position);
+        holder.title.setText(mission.getName());
+        holder.description.setText(mission.getDescription());
+    }
 
     @Override
     public int getItemCount() {
@@ -86,12 +60,13 @@ public class MissionAdapter extends RecyclerView.Adapter<MissionAdapter.MissionV
 
     public static class MissionViewHolder extends RecyclerView.ViewHolder{
 
-        Button missionButton;
+        TextView title;
+        TextView description;
 
         public MissionViewHolder(@NonNull View missionView) {
             super(missionView);
-            missionButton = missionView.findViewById(R.id.mission_button);
-
+            title = missionView.findViewById(R.id.mission_title);
+            description = missionView.findViewById(R.id.mission_description);
         }
     }
 }
