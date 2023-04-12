@@ -9,14 +9,14 @@
     android:background="#7F1A6B2D">
 
   <EditText
-      android:id="@+id/editTextTextPersonName"
+      android:id="@+id/writingName"
       android:layout_width="307dp"
       android:layout_height="60dp"
       android:layout_marginBottom="28dp"
       android:ems="10"
       android:hint="Name"
       android:inputType="textPersonName"
-      app:layout_constraintBottom_toTopOf="@+id/editTextTextMultiLine"
+      app:layout_constraintBottom_toTopOf="@+id/writingDescription"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintHorizontal_bias="0.495"
       app:layout_constraintStart_toStartOf="parent"
@@ -24,7 +24,7 @@
       app:layout_constraintVertical_bias="1.0" />
 
   <EditText
-      android:id="@+id/editTextTextMultiLine"
+      android:id="@+id/writingDescription"
       android:layout_width="337dp"
       android:layout_height="458dp"
       android:layout_marginBottom="92dp"

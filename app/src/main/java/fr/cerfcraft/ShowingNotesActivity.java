@@ -38,10 +38,10 @@ public class ShowingNotesActivity extends AppCompatActivity {
 
 
     private void setNote(int id, String name, String desc){
-        TextView txtName = findViewById(R.id.editTextTextPersonName);
+        TextView txtName = findViewById(R.id.modificationName);
         txtName.setText(name);
 
-        TextView txtDesc = findViewById(R.id.editTextTextMultiLine);
+        TextView txtDesc = findViewById(R.id.modificationDescription);
         txtDesc.setText(desc);
 
         this.id = id;
@@ -60,8 +60,8 @@ public class ShowingNotesActivity extends AppCompatActivity {
                 R.id.modifie,
         };
 
-        final int textName = R.id.editTextTextPersonName;
-        final int textDesc = R.id.editTextTextMultiLine;
+        final int textName = R.id.modificationName;
+        final int textDesc = R.id.modificationDescription;
 
         Class listClass[] = {
                 NotesActivity.class
