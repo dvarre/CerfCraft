@@ -7,6 +7,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -99,8 +101,8 @@ public class CuissonEnCoursActivity extends AppCompatActivity {
         cuissonStarted = false;
         toolbar=findViewById((R.id.include_cuisson));
         setSupportActionBar(toolbar);
-        ActionBar actionBar=getSupportActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
+        //ActionBar actionBar=getSupportActionBar();
+        //actionBar.setDisplayHomeAsUpEnabled(true);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             CharSequence name = "Notification cuisson";
             String description = "Le channel de notifs de la cuisson";
@@ -153,5 +155,12 @@ public class CuissonEnCoursActivity extends AppCompatActivity {
         CuissonActivity.cuissonEnCours = false;
         Intent intent = new Intent(this, CuissonActivity.class);
         startActivity(intent);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater=getMenuInflater();
+        inflater.inflate(R.menu.menu,menu);
+        return true;
     }
 }

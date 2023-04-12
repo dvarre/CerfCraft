@@ -7,103 +7,80 @@
     tools:context=".CuissonActivity">
 
     <include
-        android:id="@+id/include_cuisson"
-        layout="@layout/appbar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:id="@+id/include_cuisson_en_cours"
+        layout="@layout/appbar"/>
 
     <Button
         android:id="@+id/button_cuisson_end"
         android:layout_width="291dp"
         android:layout_height="49dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="6dp"
-        android:layout_marginEnd="50dp"
-        android:layout_marginBottom="240dp"
+        android:layout_marginTop="50dp"
         android:text="Annuler la cuisson"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/type_furnace"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
     <TextView
         android:id="@+id/textView13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginEnd="52dp"
-        android:layout_marginBottom="50dp"
+        android:layout_marginStart="10dp"
         android:text="secondes."
-        app:layout_constraintBottom_toTopOf="@+id/button_cuisson_end"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textViewTimeCuisson" />
+        app:layout_constraintBottom_toBottomOf="@+id/textViewTimeCuisson"
+        app:layout_constraintStart_toEndOf="@+id/textViewTimeCuisson"
+        app:layout_constraintTop_toTopOf="@+id/textViewTimeCuisson" />
 
     <TextView
         android:id="@+id/textViewTimeCuisson"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="6dp"
-        android:layout_marginEnd="12dp"
-        android:layout_marginBottom="50dp"
+        android:layout_marginStart="10dp"
         android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/button_cuisson_end"
-        app:layout_constraintEnd_toStartOf="@+id/textView13"
-        app:layout_constraintStart_toEndOf="@+id/textView11" />
+        app:layout_constraintBottom_toBottomOf="@+id/textView11"
+        app:layout_constraintStart_toEndOf="@+id/textView11"
+        app:layout_constraintTop_toTopOf="@+id/textView11" />
 
     <TextView
         android:id="@+id/textViewItemsCuissons"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="14dp"
-        android:layout_marginTop="300dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginStart="10dp"
         android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/textView11"
-        app:layout_constraintEnd_toStartOf="@+id/textView10"
+        app:layout_constraintBottom_toBottomOf="@+id/textView"
         app:layout_constraintStart_toEndOf="@+id/textView"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/textView"
+         />
 
     <TextView
         android:id="@+id/textView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="9dp"
-        android:layout_marginTop="300dp"
-        android:layout_marginEnd="144dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginStart="10dp"
         android:text="items à cuire.."
-        app:layout_constraintBottom_toTopOf="@+id/textViewTimeCuisson"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewItemsCuissons"
         app:layout_constraintStart_toEndOf="@+id/textViewItemsCuissons"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/textViewItemsCuissons" />
 
     <TextView
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
-        android:layout_marginEnd="12dp"
-        android:layout_marginBottom="50dp"
-        android:text="Cela correspon à environ"
-        app:layout_constraintBottom_toTopOf="@+id/button_cuisson_end"
-        app:layout_constraintEnd_toStartOf="@+id/textViewTimeCuisson"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:layout_marginTop="40dp"
+        android:text="Cela correspond à environ"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.15"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="300dp"
-        android:layout_marginEnd="14dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginTop="150dp"
         android:text="Il reste"
-        app:layout_constraintBottom_toTopOf="@+id/textView11"
-        app:layout_constraintEnd_toStartOf="@+id/textViewItemsCuissons"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.15"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/include_cuisson_en_cours" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

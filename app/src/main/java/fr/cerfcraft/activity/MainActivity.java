@@ -194,7 +194,7 @@ public class MainActivity extends AppCompatActivity {
                 intent = new Intent(this, CuissonActivity.class);
                 break;
             case "Mission":
-                intent = new Intent(this, MissionsActivity.class);
+                intent = new Intent(this, MissionCategoriesActivity.class);
                 break;
             case "Notes":
                 intent = new Intent(this, NotesActivity.class);
