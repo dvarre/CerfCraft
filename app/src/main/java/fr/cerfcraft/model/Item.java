@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Item {
-    int id; // ok
+    Integer id; // ok
     String name; //ok
     String image; //ok
     String type; // ok
@@ -27,20 +27,6 @@ public class Item {
     //boolean canDamage;
 
 
-    public Item(){
-
-    }
-    public Item(int id, String name, String image, String type, DocumentReference craft, Integer durability, Integer damage, String description) {
-        this.id = id;
-        this.name = name;
-        this.image = image;
-        this.type = type;
-        this.craft = craft;
-        this.durability = durability;
-        this.damage = damage;
-        this.description = description;
-    }
-
     public String getDescription() {
         return description;
     }
@@ -49,11 +35,11 @@ public class Item {
         this.description = description;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

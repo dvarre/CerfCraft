@@ -32,33 +32,31 @@ import fr.cerfcraft.R;
 import fr.cerfcraft.model.Biome;
 import fr.cerfcraft.model.Craft;
 import fr.cerfcraft.model.Item;
-import fr.cerfcraft.model.Loot;
 import fr.cerfcraft.model.Mission;
 import fr.cerfcraft.model.Mob;
 
-public class LinkBiomeAdapter extends RecyclerView.Adapter<LinkBiomeAdapter.LinkBiomeViewHolder>{
-
+public class LinkCraftAdapter extends RecyclerView.Adapter<LinkCraftAdapter.LinkCraftViewHolder>{
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     Context context;
     List<Object> objects;
     CollectionReference ref;
 
-    public LinkBiomeAdapter(Context context, List<Object> objects) {
+    public LinkCraftAdapter(Context context, List<Object> objects) {
         this.context = context;
         this.objects = objects;
     }
 
     @NonNull
     @Override
-    public LinkBiomeViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public LinkCraftAdapter.LinkCraftViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View adapterLayout = LayoutInflater.from(context)
                 .inflate(R.layout.link, parent, false);
 
-        return new LinkBiomeViewHolder(adapterLayout);
+        return new LinkCraftAdapter.LinkCraftViewHolder(adapterLayout);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull LinkBiomeViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull LinkCraftAdapter.LinkCraftViewHolder holder, int position) {
         Object object = objects.get(position);
         String uri="";
 
@@ -200,11 +198,11 @@ public class LinkBiomeAdapter extends RecyclerView.Adapter<LinkBiomeAdapter.Link
         return objects.size();
     }
 
-    public static class LinkBiomeViewHolder extends RecyclerView.ViewHolder {
+    public static class LinkCraftViewHolder extends RecyclerView.ViewHolder {
 
         Button linkButton;
 
-        public LinkBiomeViewHolder(@NonNull View itemView) {
+        public LinkCraftViewHolder(@NonNull View itemView) {
             super(itemView);
             linkButton = itemView.findViewById(R.id.link_button);
         }

@@ -104,7 +104,6 @@ public class BiomeInfo extends AppCompatActivity {
                 }
             });
         }
-
     }
 
     private void addObjectsToListToDisplay(List<String> referencelist, String collectionBD, Class testObj){
