@@ -90,7 +90,7 @@ public class MobInfo extends AppCompatActivity {
                         idView.setText("?");
                     }
                     if(mob.getHealth() != null){
-                        lifeView.setText(mob.getHealth());
+                        lifeView.setText(mob.getHealth().toString());
                     } else {
                         lifeView.setText("?");
                     }
