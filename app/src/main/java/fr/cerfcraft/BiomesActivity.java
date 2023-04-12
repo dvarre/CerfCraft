@@ -65,8 +65,6 @@ public class BiomesActivity extends AppCompatActivity {
                         Log.e(TAG,"On Failure : ", e);
                     }
                 });
-
-
     }
 
     //Pour mettre à jour les données automatiquement
