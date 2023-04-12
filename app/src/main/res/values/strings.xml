@@ -17,4 +17,8 @@
     <string name="type_txt_view">Type :</string>
     <string name="description_txt_view">Description :</string>
     <string name="durability_txt_view">Durabilité :</string>
+    <string name="temperature_txt_view">Température :</string>
+    <string name="rarity_txt_view">Rareté :</string>
+    <string name="life_txt_view">Vie :</string>
+    <string name="exp_txt_view">Expérience :</string>
 </resources>

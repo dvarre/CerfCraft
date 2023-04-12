@@ -7,12 +7,12 @@ import java.util.List;
 
 public class Biome {
 
-    int id;
+    Integer id;
     String name;
     String image;
     String type;
     String rarity;
-    float temperature;
+    Float temperature;
     String description;
     List<String> linksBiomes = new ArrayList<>();
     List<String> linksCrafts = new ArrayList<>();
@@ -22,9 +22,7 @@ public class Biome {
     List<String> linksMobs = new ArrayList<>();
     List<String> linksStructures = new ArrayList<>();
 
-    public int getId() {
-        return id;
-    }
+
 
     public String getName() {
         return name;
@@ -40,10 +38,6 @@ public class Biome {
 
     public String getRarity() {
         return rarity;
-    }
-
-    public float getTemperature() {
-        return temperature;
     }
 
     public String getDescription() {
@@ -106,8 +100,20 @@ public class Biome {
         this.linksStructures = linksStructures;
     }
 
-    public void setId(int id) {
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Float getTemperature() {
+        return temperature;
+    }
+
+    public void setTemperature(Float temperature) {
+        this.temperature = temperature;
     }
 
     public void setName(String name) {
@@ -124,10 +130,6 @@ public class Biome {
 
     public void setRarity(String rarity) {
         this.rarity = rarity;
-    }
-
-    public void setTemperature(float temperature) {
-        this.temperature = temperature;
     }
 
     public void setDescription(String description) {
