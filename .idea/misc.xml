@@ -3,7 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/CerfCraft/app/src/main/res/layout/activity_biome_info.xml" value="0.4182692307692308" />
+        <entry key="..\:/CerfCraft/app/src/main/res/drawable/box.xml" value="0.2545" />
+        <entry key="..\:/CerfCraft/app/src/main/res/layout/activity_biome_info.xml" value="0.24358974358974358" />
         <entry key="..\:/CerfCraft/app/src/main/res/layout/activity_biomes.xml" value="0.25" />
         <entry key="..\:/CerfCraft/app/src/main/res/layout/activity_craft.xml" value="0.176" />
         <entry key="..\:/CerfCraft/app/src/main/res/layout/activity_craft_item.xml" value="0.264" />
