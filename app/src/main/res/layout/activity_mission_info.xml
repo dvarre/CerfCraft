@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MobInfo">
+    tools:context=".MissionInfo">
 
     <include
-        android:id="@+id/include_mob_info"
+        android:id="@+id/include_mission_info"
         layout="@layout/appbar"/>
 
     <TextView
@@ -18,7 +18,7 @@
         android:text="TextView"
         app:layout_constraintEnd_toStartOf="@+id/image"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/include_mob_info" />
+        app:layout_constraintTop_toBottomOf="@+id/include_mission_info" />
 
     <ImageView
         android:id="@+id/image"
@@ -27,7 +27,7 @@
         android:layout_marginTop="26dp"
         android:layout_marginEnd="26dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/include_mob_info"
+        app:layout_constraintTop_toBottomOf="@+id/include_mission_info"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
@@ -39,25 +39,4 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/image" />
-
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/links_mob"
-        android:layout_width="361dp"
-        android:layout_height="358dp"
-
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linkText_mob" />
-
-    <TextView
-        android:id="@+id/linkText_mob"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:text=""
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/description" />
 </androidx.constraintlayout.widget.ConstraintLayout>

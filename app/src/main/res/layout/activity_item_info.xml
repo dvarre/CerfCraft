@@ -7,6 +7,10 @@
     tools:context=".ItemInfo"
     android:background="#1A6B2D">
 
+    <include
+        android:id="@+id/include_item_info"
+        layout="@layout/appbar" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="366dp"
         android:layout_height="685dp"

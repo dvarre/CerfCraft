@@ -7,16 +7,31 @@
     android:layout_height="match_parent"
     tools:context=".NotesActivity">
 
+  <include
+      android:id="@+id/include_note"
+      layout="@layout/appbar"/>
+
   <Button
       android:id="@+id/modifie"
       android:layout_width="141dp"
       android:layout_height="55dp"
-      android:layout_marginTop="16dp"
-      android:hint="Modifier"
+      android:layout_marginTop="46dp"
+      android:text="Ajouter une note"
       app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.897"
-      app:layout_constraintStart_toEndOf="@+id/delete"
-      app:layout_constraintTop_toTopOf="parent" />
+      app:layout_constraintHorizontal_bias="0.845"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine" />
+
+  <TextView
+      android:id="@+id/editTextTextPersonName"
+      android:layout_width="156dp"
+      android:layout_height="32dp"
+      android:layout_marginTop="26dp"
+      android:text="Name"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.498"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/include_note" />
 
   <EditText
       android:id="@+id/editTextTextPersonName"
@@ -32,14 +47,17 @@
       android:id="@+id/editTextTextMultiLine"
       android:layout_width="343dp"
       android:layout_height="420dp"
-      android:layout_marginBottom="128dp"
+      android:layout_marginTop="57dp"
+      android:layout_marginBottom="140dp"
       android:ems="10"
       android:gravity="start|top"
       android:hint="Description"
       android:inputType="textMultiLine"
+      android:text="Description"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintStart_toStartOf="parent" />
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
 
   <Button
       android:id="@+id/delete"

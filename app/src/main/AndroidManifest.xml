@@ -20,62 +20,77 @@
         <activity
             android:name=".MobInfo"
             android:screenOrientation="portrait"
+            android:parentActivityName=".MobsActivity"
             android:exported="false" />
         <activity
             android:name=".MissionCategoryInfo"
+            android:parentActivityName=".MissionCategoriesActivity"
             android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".ItemInfo"
             android:screenOrientation="portrait"
+            android:parentActivityName=".ItemsActivity"
             android:exported="false" />
         <activity
             android:name=".BiomeInfo"
             android:screenOrientation="portrait"
+            android:parentActivityName=".BiomesActivity"
             android:exported="false" />
         <activity
             android:name=".CraftItem"
             android:screenOrientation="portrait"
+            android:parentActivityName=".CraftActivity"
             android:exported="false" />
         <activity
             android:name=".MissionCategoriesActivity"
             android:screenOrientation="portrait"
+            android:parentActivityName=".activity.MainActivity"
             android:exported="false" />
         <activity
             android:name=".CuissonActivity"
             android:screenOrientation="portrait"
+            android:parentActivityName=".activity.MainActivity"
             android:exported="false" />
         <activity
             android:name=".MobsActivity"
             android:screenOrientation="portrait"
+            android:parentActivityName=".activity.MainActivity"
             android:exported="false" />
         <activity
             android:name=".ItemsActivity"
             android:screenOrientation="portrait"
+            android:parentActivityName=".activity.MainActivity"
             android:exported="false" />
         <activity
             android:name=".BiomesActivity"
             android:screenOrientation="portrait"
+            android:parentActivityName=".activity.MainActivity"
             android:exported="false" />
         <activity
             android:name=".CraftActivity"
             android:screenOrientation="portrait"
+            android:parentActivityName=".activity.MainActivity"
             android:exported="false" />
         <activity
             android:name=".NotesActivity"
             android:screenOrientation="portrait"
+            android:parentActivityName=".activity.MainActivity"
             android:exported="false" />
         <activity
             android:name=".NotifsActivity"
             android:screenOrientation="portrait"
+            android:parentActivityName=".activity.MainActivity"
             android:exported="false" />
         <activity
             android:name=".WritingNotesActivity"
             android:screenOrientation="portrait"
+            android:parentActivityName=".activity.MainActivity"
             android:exported="true"/>
         <activity
             android:name=".ShowingNotesActivity"
             android:exported="true"
+            android:parentActivityName=".activity.MainActivity"
             tools:ignore="Instantiatable" />
         <activity
             android:name=".activity.MainActivity"
