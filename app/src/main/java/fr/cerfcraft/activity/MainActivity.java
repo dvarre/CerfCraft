@@ -3,6 +3,7 @@ package fr.cerfcraft.activity;
 import static android.content.ContentValues.TAG;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
@@ -78,6 +79,11 @@ public class MainActivity extends AppCompatActivity {
         //Toolbar
         toolbar=findViewById(R.id.appToolBar); // On get la toolbar personnalisée qu'on a créé
         setSupportActionBar(toolbar);
+
+        /*toolbar=findViewById((R.id.include_cuisson));
+        setSupportActionBar(toolbar);
+        ActionBar actionBar=getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);*/
 
         // Pour la recherche
 
@@ -170,9 +176,8 @@ public class MainActivity extends AppCompatActivity {
                     break;
             }
 
-            Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-            setSupportActionBar(toolbar);
-            Spinner sp = (Spinner) findViewById(R.id.spinner2);
+
+            /*Spinner sp = (Spinner) findViewById(R.id.spinner2);
             ArrayAdapter<String> adapter = new ArrayAdapter<String>(MainActivity.this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, activitys);
             adapter.setDropDownViewResource(androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
             sp.setAdapter(adapter);
@@ -188,7 +193,7 @@ public class MainActivity extends AppCompatActivity {
                 public void onNothingSelected(AdapterView<?> adapterView) {
 
                 }
-            });
+            });*/
         }
     }
 
@@ -284,6 +289,10 @@ public class MainActivity extends AppCompatActivity {
         };
         searchView.setOnQueryTextListener(onQueryTextListener);
         searchView.setQueryHint("Search Data here");
+
+
+
+
         return true;
 
 

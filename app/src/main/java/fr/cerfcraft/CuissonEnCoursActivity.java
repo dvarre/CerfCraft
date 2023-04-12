@@ -8,16 +8,18 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.widget.Button;
-import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.NotificationCompat;
 
 import fr.cerfcraft.activity.MainActivity;
 
 public class CuissonEnCoursActivity extends AppCompatActivity {
 
+    private Toolbar toolbar;
     protected NotificationManager notificationManager;
     NotificationCompat.Builder builder;
     Button button;
@@ -95,6 +97,10 @@ public class CuissonEnCoursActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cuisson_en_cours);
         cuissonStarted = false;
+        toolbar=findViewById((R.id.include_cuisson));
+        setSupportActionBar(toolbar);
+        ActionBar actionBar=getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             CharSequence name = "Notification cuisson";
             String description = "Le channel de notifs de la cuisson";

@@ -6,6 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".CuissonActivity">
 
+    <include
+        android:id="@+id/include_cuisson"
+        layout="@layout/appbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
     <Button
         android:id="@+id/button_cuisson_end"
         android:layout_width="291dp"

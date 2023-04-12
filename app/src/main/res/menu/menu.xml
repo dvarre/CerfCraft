@@ -12,17 +12,16 @@
         />
 
     <item
-        android:title="Menu"
-        android:icon="@drawable/ic_menu"
         android:id="@+id/menu"
-        app:showAsAction="ifRoom"
-        />
-    <item
-        android:title="Options"
         android:icon="@drawable/ic_menu"
+        android:title="Menu"
+        app:actionProviderClass="@string/biomes_menu"
+        app:showAsAction="ifRoom" />
+    <item
         android:id="@+id/options"
-        app:showAsAction="never"
-        />
+        android:icon="@drawable/ic_menu"
+        android:title="Options"
+        app:showAsAction="never" />
 
 
 </menu>
