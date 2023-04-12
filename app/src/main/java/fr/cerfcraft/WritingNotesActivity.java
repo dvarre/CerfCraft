@@ -27,8 +27,8 @@ public class WritingNotesActivity extends AppCompatActivity {
                 R.id.valider,
         };
 
-        final int textName = R.id.editTextTextPersonName;
-        final int textDesc = R.id.editTextTextMultiLine;
+        final int textName = R.id.writingName;
+        final int textDesc = R.id.writingDescription;
 
         Class listClass[] = {
                 NotesActivity.class
