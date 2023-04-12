@@ -3,6 +3,10 @@ package fr.cerfcraft;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.appcompat.widget.Toolbar;
+
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -61,11 +65,6 @@ public class BiomeInfo extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_biome_info);
 
-        toolbar=findViewById((R.id.include_biome_info));
-        setSupportActionBar(toolbar);
-        ActionBar actionBar=getSupportActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
-
         // On récupère les élements d'affichages
         TextView nameTxtView = findViewById(R.id.titre);
         ImageView imageView = findViewById(R.id.image);
@@ -76,6 +75,11 @@ public class BiomeInfo extends AppCompatActivity {
         TextView rarityView = findViewById(R.id.rarityNbTxtView);
 
         // Chargement de l'élement séléctionné depuis la vue précédente
+        toolbar=findViewById((R.id.include_biome_info));
+        setSupportActionBar(toolbar);
+        ActionBar actionBar=getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
         Intent intent = getIntent();
         if (intent != null){
             String id ="";

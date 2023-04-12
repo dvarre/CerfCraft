@@ -2,6 +2,7 @@ package fr.cerfcraft.activity;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
@@ -14,12 +15,16 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.firebase.firestore.DocumentReference;
@@ -45,6 +50,8 @@ public class MainActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
+    private boolean test = false;
+    public String[] activitys = {"", "Craft", "Biome", "Item", "Mob", "Cuisson", "Mission", "Notes", "Notif"};
     //Pour la recherche
     private RecyclerView searchRecyclerView;
     private RecyclerView.Adapter searchAdapter;
@@ -59,6 +66,11 @@ public class MainActivity extends AppCompatActivity {
         //Toolbar
         toolbar=findViewById(R.id.appToolBar); // On get la toolbar personnalisée qu'on a créé
         setSupportActionBar(toolbar);
+
+        /*toolbar=findViewById((R.id.include_cuisson));
+        setSupportActionBar(toolbar);
+        ActionBar actionBar=getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);*/
 
         // Pour la recherche
 
@@ -144,7 +156,65 @@ public class MainActivity extends AppCompatActivity {
                     });
                     break;
             }
+
+
+            /*Spinner sp = (Spinner) findViewById(R.id.spinner2);
+            ArrayAdapter<String> adapter = new ArrayAdapter<String>(MainActivity.this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, activitys);
+            adapter.setDropDownViewResource(androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
+            sp.setAdapter(adapter);
+            sp.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    String value = adapterView.getItemAtPosition(i).toString();
+                    test = true;
+                    Switch(value);
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+
+                }
+            });*/
         }
+    }
+
+    public void Switch(String value) {
+        Intent intent = null;
+        switch (value) {
+            case "Biome":
+                intent = new Intent(this, BiomesActivity.class );
+                break;
+            case "Item":
+                intent = new Intent(this, ItemsActivity.class );
+                break;
+            case "Mob":
+                intent = new Intent(this, MobsActivity.class );
+                break;
+            case "Cuisson":
+                intent = new Intent(this, CuissonActivity.class);
+                break;
+            case "Mission":
+                intent = new Intent(this, MissionCategoriesActivity.class);
+                break;
+            case "Notes":
+                intent = new Intent(this, NotesActivity.class);
+                break;
+            case "Notif":
+                intent = new Intent(this, NotifsActivity.class);
+                break;
+            case "Craft":
+                intent = new Intent(this, CraftActivity.class);
+                break;
+            default:
+                intent = null;
+                test = false;
+                break;
+        }
+        if (test) {
+            startActivity(intent);
+            test = false;
+        }
+
     }
 
     @Override
@@ -200,6 +270,10 @@ public class MainActivity extends AppCompatActivity {
         };
         searchView.setOnQueryTextListener(onQueryTextListener);
         searchView.setQueryHint("Search Data here");
+
+
+
+
         return true;
 
 

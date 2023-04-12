@@ -7,6 +7,11 @@
     tools:context=".activity.MainActivity"
     android:background="#7F1A6B2D">
 
+    <include
+        android:id="@+id/include_cuisson"
+        layout="@layout/appbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
     <Button
         android:id="@+id/buttonNotes"
@@ -100,8 +105,6 @@
         layout="@layout/appbar"/>
     <include
         layout="@layout/search_result"/>
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

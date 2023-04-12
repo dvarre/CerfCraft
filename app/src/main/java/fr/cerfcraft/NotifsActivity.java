@@ -1,7 +1,9 @@
 package fr.cerfcraft;
 
+import android.app.AlertDialog;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.content.DialogInterface;
 import android.icu.number.NumberRangeFormatter;
 import android.os.Build;
 import android.os.Bundle;
@@ -60,15 +62,26 @@ public class NotifsActivity extends AppCompatActivity{
 
 
     public void startNotif() {
-        final Handler handler = new Handler(Looper.getMainLooper());
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                    notificationManager.notify(0, builder.build());
-                }
-            }
-        }, Integer.parseInt(time.getText().toString()) * 1000);
+        AlertDialog.Builder builder2 = new AlertDialog.Builder(this);
+        builder2.setMessage("La planification du rappel après un temps de jeu de "
+                + time.getText().toString() + " minutes a été effectué avec succes.")
+                .setTitle("Notification temps de jeu")
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        final Handler handler = new Handler(Looper.getMainLooper());
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                                    notificationManager.notify(0, builder.build());
+                                }
+                            }
+                        }, Integer.parseInt(time.getText().toString()) * 1000 * 60);
+                    }
+                });
+        AlertDialog dialog = builder2.create();
+        dialog.show();
     }
 
     @Override
