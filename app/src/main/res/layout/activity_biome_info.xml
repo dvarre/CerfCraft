@@ -4,73 +4,217 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".BiomeInfo">
+    tools:context=".BiomeInfo"
+    android:background="#7F1A6B2D">
 
     <include
         android:id="@+id/include_biome_info"
         layout="@layout/appbar" />
 
-    <TextView
-        android:id="@+id/textViewBox"
-        android:layout_width="388dp"
-        android:layout_height="416dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="374dp"
+        android:layout_height="658dp"
         android:background="@drawable/box_dark"
-        android:text=""
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/description" />
+        app:layout_constraintTop_toBottomOf="@+id/include_biome_info">
 
-    <TextView
-        android:id="@+id/titre"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="75dp"
-        android:text="TextView"
-        app:layout_constraintEnd_toStartOf="@+id/image"
-        app:layout_constraintHorizontal_bias="0.412"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/include_biome_info" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="320dp"
+            android:layout_height="350dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/box_normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-    <ImageView
-        android:id="@+id/image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="26dp"
-        android:layout_marginEnd="24dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/include_biome_info"
-        tools:srcCompat="@tools:sample/avatars" />
 
-    <TextView
-        android:id="@+id/description"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/image" />
+            <ScrollView
+                android:layout_width="275dp"
+                android:layout_height="136dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.504"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/descriptionTxtView">
 
-    <TextView
-        android:id="@+id/linkText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="@string/deep_links"
-        android:textColor="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textViewBox" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/links"
-        android:layout_width="362dp"
-        android:layout_height="351dp"
+                    <TextView
+                        android:id="@+id/description"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TextView"
+                        android:textColor="#ffffff" />
+                </LinearLayout>
+            </ScrollView>
 
-        app:layout_constraintBottom_toBottomOf="@+id/textViewBox"
-        app:layout_constraintEnd_toEndOf="@+id/textViewBox"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linkText" />
+            <TextView
+                android:id="@+id/titre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="TextView"
+                android:textColor="#ffffff"
+                app:layout_constraintEnd_toStartOf="@+id/image"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/image"
+                android:layout_width="91dp"
+                android:layout_height="94dp"
+
+                android:layout_marginTop="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.91"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <TextView
+                android:id="@+id/descriptionTxtView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/description_txt_view"
+                android:textColor="#ffffff"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/temperatureTxtView"
+                app:layout_constraintVertical_bias="0.05" />
+
+            <TextView
+                android:id="@+id/idTxtView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="@string/id_txt_view"
+                android:textColor="#ffffff"
+                app:layout_constraintEnd_toStartOf="@+id/image"
+                app:layout_constraintHorizontal_bias="0.1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/titre" />
+
+            <TextView
+                android:id="@+id/idNbTxtView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:textColor="#ffffff"
+                app:layout_constraintBottom_toBottomOf="@+id/idTxtView"
+                app:layout_constraintStart_toEndOf="@+id/idTxtView"
+                app:layout_constraintTop_toTopOf="@+id/idTxtView"
+                tools:text="4" />
+
+            <TextView
+                android:id="@+id/rarityTxtView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="@string/rarity_txt_view"
+                android:textColor="#ffffff"
+                app:layout_constraintEnd_toStartOf="@+id/image"
+                app:layout_constraintHorizontal_bias="0.1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/idTxtView" />
+
+            <TextView
+                android:id="@+id/rarityNbTxtView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:textColor="#ffffff"
+                app:layout_constraintBottom_toBottomOf="@+id/rarityTxtView"
+                app:layout_constraintStart_toEndOf="@+id/rarityTxtView"
+                app:layout_constraintTop_toTopOf="@+id/rarityTxtView"
+                tools:text="4" />
+
+            <TextView
+                android:id="@+id/typeTxtView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="@string/type_txt_view"
+                android:textColor="#ffffff"
+                app:layout_constraintEnd_toStartOf="@+id/image"
+                app:layout_constraintHorizontal_bias="0.1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rarityTxtView" />
+
+            <TextView
+                android:id="@+id/typeStrTxtView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:textColor="#ffffff"
+                app:layout_constraintBottom_toBottomOf="@+id/typeTxtView"
+                app:layout_constraintStart_toEndOf="@+id/typeTxtView"
+                app:layout_constraintTop_toTopOf="@+id/typeTxtView"
+                tools:text="Matière première" />
+
+            <TextView
+                android:id="@+id/temperatureTxtView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="@string/temperature_txt_view"
+                android:textColor="#ffffff"
+                app:layout_constraintEnd_toStartOf="@+id/image"
+                app:layout_constraintHorizontal_bias="0.1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/typeTxtView" />
+
+            <TextView
+                android:id="@+id/temperatureNbTxtView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:textColor="#ffffff"
+                app:layout_constraintBottom_toBottomOf="@+id/temperatureTxtView"
+                app:layout_constraintStart_toEndOf="@+id/temperatureTxtView"
+                app:layout_constraintTop_toTopOf="@+id/temperatureTxtView"
+                tools:text="4" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="320dp"
+            android:layout_height="250dp"
+            android:background="@drawable/box_light"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/links"
+                android:layout_width="297dp"
+                android:layout_height="196dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linkTxtView" />
+
+            <TextView
+                android:id="@+id/linkTxtView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/deep_links"
+                android:textColor="#ffffff"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

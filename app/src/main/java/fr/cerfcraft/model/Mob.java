@@ -8,14 +8,14 @@ import java.util.Collection;
 import java.util.List;
 
 public class Mob {
-    int id; //ok
+    Integer id; //ok
     String name; //ok
     String behaviour; //ok
-    int health; //ok
-    int damageEasy; //ok
-    int damageNormal; //ok
-    int damageHard; //ok
-    int experience; //ok
+    Integer health; //ok
+    Integer damageEasy; //ok
+    Integer damageNormal; //ok
+    Integer damageHard; //ok
+    Integer experience; //ok
     String image; //ok
     //String description;
     //Collection<Loot> loots;
@@ -28,40 +28,80 @@ public class Mob {
     List<String> linksMobs = new ArrayList<>();
     List<String> linksStructures = new ArrayList<>();
 
-    public void setId(int id) {
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public void setName(String name) {
         this.name = name;
     }
 
+    public String getBehaviour() {
+        return behaviour;
+    }
+
     public void setBehaviour(String behaviour) {
         this.behaviour = behaviour;
     }
 
-    public void setHealth(int health) {
+    public Integer getHealth() {
+        return health;
+    }
+
+    public void setHealth(Integer health) {
         this.health = health;
     }
 
-    public void setDamageEasy(int damageEasy) {
+    public Integer getDamageEasy() {
+        return damageEasy;
+    }
+
+    public void setDamageEasy(Integer damageEasy) {
         this.damageEasy = damageEasy;
     }
 
-    public void setDamageNormal(int damageNormal) {
+    public Integer getDamageNormal() {
+        return damageNormal;
+    }
+
+    public void setDamageNormal(Integer damageNormal) {
         this.damageNormal = damageNormal;
     }
 
-    public void setDamageHard(int damageHard) {
+    public Integer getDamageHard() {
+        return damageHard;
+    }
+
+    public void setDamageHard(Integer damageHard) {
         this.damageHard = damageHard;
     }
 
-    public void setExperience(int experience) {
+    public Integer getExperience() {
+        return experience;
+    }
+
+    public void setExperience(Integer experience) {
         this.experience = experience;
+    }
+
+    public String getImage() {
+        return image;
     }
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public CollectionReference getLoots() {
+        return loots;
     }
 
     public void setLoots(CollectionReference loots) {
@@ -123,56 +163,4 @@ public class Mob {
     public void setLinksStructures(List<String> linksStructures) {
         this.linksStructures = linksStructures;
     }
-
-    //    public String getDescription() {
-//        return description;
-//    }
-//
-//    public void setDescription(String description) {
-//        this.description = description;
-//    }
-
-    public int getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getBehaviour() {
-        return behaviour;
-    }
-
-    public int getHealth() {
-        return health;
-    }
-
-    public int getDamageEasy() {
-        return damageEasy;
-    }
-
-    public int getDamageNormal() {
-        return damageNormal;
-    }
-
-    public int getDamageHard() {
-        return damageHard;
-    }
-
-    public int getExperience() {
-        return experience;
-    }
-
-    public String getImage() {
-        return image;
-    }
-
-    public CollectionReference getLoots() {
-        return loots;
-    }
-
-//    public Collection<Loot> getLoots() {
-//        return loots;
-//    }
 }

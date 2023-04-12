@@ -67,9 +67,13 @@ public class BiomeInfo extends AppCompatActivity {
         actionBar.setDisplayHomeAsUpEnabled(true);
 
         // On récupère les élements d'affichages
-        TextView txtView = findViewById(R.id.titre);
+        TextView nameTxtView = findViewById(R.id.titre);
         ImageView imageView = findViewById(R.id.image);
         TextView descriptionView = findViewById(R.id.description);
+        TextView idView = findViewById(R.id.idNbTxtView);
+        TextView temperatureView = findViewById(R.id.temperatureNbTxtView);
+        TextView typeView = findViewById(R.id.typeStrTxtView);
+        TextView rarityView = findViewById(R.id.rarityNbTxtView);
 
         // Chargement de l'élement séléctionné depuis la vue précédente
         Intent intent = getIntent();
@@ -86,13 +90,35 @@ public class BiomeInfo extends AppCompatActivity {
                     //Si le document est trouvé, on set les éléments graphiques en fonctions des éléments récupérés depuis la BDD
                     Biome biome = task.getResult().toObject(Biome.class);
                     assert biome != null;
-                    txtView.setText(biome.getName());
+                    nameTxtView.setText(biome.getName());
                     descriptionView.setText(biome.getDescription());
                     String uri = "@drawable/" + biome.getImage();
 
                     @SuppressLint("DiscouragedApi") int imageResource = getResources().getIdentifier(uri, null, getPackageName());
 
                     @SuppressLint("UseCompatLoadingForDrawables") Drawable res = getResources().getDrawable(imageResource);
+
+                    if(biome.getId() != null){
+                        idView.setText(biome.getId().toString());
+                    } else {
+                        idView.setText("?");
+                    }
+                    if(biome.getType() != null){
+                        typeView.setText(biome.getType());
+                    } else {
+                        typeView.setText("?");
+                    }
+                    if(biome.getTemperature() != null){
+                        temperatureView.setText(biome.getTemperature().toString());
+                    } else {
+                        temperatureView.setText("?");
+                    }
+                    if(biome.getRarity() != null){
+                        rarityView.setText(biome.getRarity().toString());
+                    } else {
+                        rarityView.setText("?");
+                    }
+
                     imageView.setImageDrawable(res);
                     List<String> linksBiomes = biome.getLinksBiomes();
                     List<String> linksCrafts = biome.getLinksCrafts();
@@ -110,8 +136,13 @@ public class BiomeInfo extends AppCompatActivity {
                     addObjectsToListToDisplay(linksStructures, "structures", Structure.class);
                 }
                 else{
-                    txtView.setText("");
+                    nameTxtView.setText("");
                     descriptionView.setText("");
+                    imageView.setImageDrawable(null);
+                    idView.setText("");
+                    typeView.setText("");
+                    rarityView.setText("");
+                    temperatureView.setText("");
                 }
             });
         }
