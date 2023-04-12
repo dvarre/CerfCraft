@@ -26,7 +26,6 @@ import java.util.List;
 import fr.cerfcraft.BiomeInfo;
 import fr.cerfcraft.CraftItem;
 import fr.cerfcraft.ItemInfo;
-import fr.cerfcraft.MissionInfo;
 import fr.cerfcraft.MobInfo;
 import fr.cerfcraft.R;
 import fr.cerfcraft.model.Biome;
@@ -125,31 +124,6 @@ public class LinkItemAdapter extends RecyclerView.Adapter<LinkItemAdapter.LinkIt
                                     for (QueryDocumentSnapshot document : task.getResult()) {
                                         Log.d(TAG, document.getId() + " => " + document.getData());
                                         Intent intent = new Intent(context, ItemInfo.class);
-                                        intent.putExtra("idToDisplay", document.getId());
-                                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                                        context.startActivity(intent);
-                                    }
-                                }
-                            }
-                        });
-                    }
-                });
-            }else if(object.getClass() == Mission.class){
-                Mission newObject = (Mission) object;
-                holder.linkButton.setText(newObject.getName());
-                uri = "@drawable/" + newObject.getImage();
-                ref = db.collection("missions");
-
-                holder.linkButton.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        ref.whereEqualTo("id", newObject.getId()).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                            @Override
-                            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                                if (task.isSuccessful()) {
-                                    for (QueryDocumentSnapshot document : task.getResult()) {
-                                        Log.d(TAG, document.getId() + " => " + document.getData());
-                                        Intent intent = new Intent(context, MissionInfo.class);
                                         intent.putExtra("idToDisplay", document.getId());
                                         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                         context.startActivity(intent);
