@@ -133,8 +133,6 @@ public class ItemInfo extends AppCompatActivity {
         for (int i=0; i<referencelist.size(); i++){
             if(referencelist.get(i) != null && referencelist.get(i)!="")
             {
-                System.out.println("collectionBD = " + collectionBD);
-                System.out.println("referencelist.get(i) = " + referencelist.get(i));
                 db.collection(collectionBD).document(referencelist.get(i)).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                     @Override
                     public void onSuccess(DocumentSnapshot documentSnapshot) {

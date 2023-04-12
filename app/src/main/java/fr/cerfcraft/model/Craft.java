@@ -7,8 +7,7 @@ import java.util.List;
 
 public class Craft {
 
-    int id;
-    DocumentReference result;
+    Integer id;
     List<DocumentReference> slots = new ArrayList<>();
     String name;
     String image;
@@ -29,16 +28,12 @@ public class Craft {
         this.description = description;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
-    }
-
-    public void setResult(DocumentReference result) {
-        this.result = result;
     }
 
     public List<DocumentReference> getSlots() {
@@ -63,10 +58,6 @@ public class Craft {
 
     public void setImage(String image) {
         this.image = image;
-    }
-
-    public DocumentReference getResult() {
-        return result;
     }
 
     public List<String> getLinksBiomes() {
