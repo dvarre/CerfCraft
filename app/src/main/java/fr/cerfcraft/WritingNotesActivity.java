@@ -3,6 +3,7 @@ package fr.cerfcraft;
 import static android.app.PendingIntent.getActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -36,8 +37,8 @@ public class WritingNotesActivity extends AppCompatActivity {
                 R.id.valider,
         };
 
-        final int textName = R.id.editTextTextPersonName;
-        final int textDesc = R.id.editTextTextMultiLine;
+        final int textName = R.id.writingName;
+        final int textDesc = R.id.writingDescription;
 
         Class listClass[] = {
                 NotesActivity.class
@@ -50,20 +51,29 @@ public class WritingNotesActivity extends AppCompatActivity {
 
             switch(i){
                 default:
+
+                    activityToAcess.setBackgroundColor(Color.BLUE);
                     activityToAcess.setOnClickListener(v -> {
 
-                        new Thread(new Runnable() {
+                        Thread t3 = new Thread(new Runnable() {
                             @Override
                             public void run() {
                                 AppDataBase db = Room.databaseBuilder(getApplicationContext(),
                                         AppDataBase.class, "database-name").build();
                                 NoteDao noteDao = db.noteDao();
-                                noteDao.insert(new Note(nameEditText.getText().toString(),
+                                int id = noteDao.getAll().size();
+                                noteDao.insert(new Note(id,nameEditText.getText().toString(),
                                             null,
                                                 descEditText.getText().toString()));
 
                             }
-                        }).start();
+                        });
+                        t3.start();
+                        try {
+                            t3.join();
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
                         Toast.makeText(WritingNotesActivity.this, "Note ajoutée avec succes", Toast.LENGTH_SHORT).show();
 
 

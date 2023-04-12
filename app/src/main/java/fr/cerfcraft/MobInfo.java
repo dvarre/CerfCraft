@@ -6,6 +6,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.appcompat.widget.Toolbar;
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
 import android.content.Intent;
@@ -14,6 +17,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -58,11 +64,16 @@ public class MobInfo extends AppCompatActivity {
                 id = intent.getStringExtra("idToDisplay");
             }
         }
-        TextView txtView = findViewById(R.id.titre);
+        TextView nameTxtView = findViewById(R.id.titre);
         TextView descriptionView = findViewById(R.id.description);
         ImageView imageView = findViewById(R.id.image);
+        TextView idView = findViewById(R.id.idNbTxtView);
+        TextView expView = findViewById(R.id.expNbTxtView);
+        TextView lifeView = findViewById(R.id.lifeNbTxtView);
+
+
         Context ctx = this;
-        RecyclerView recyclerView = findViewById(R.id.links_mob);
+        RecyclerView recyclerView = findViewById(R.id.links);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(ctx));
         ref.document(id).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
@@ -71,7 +82,7 @@ public class MobInfo extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     Mob mob = task.getResult().toObject(Mob.class);
                     mob.setLoots(task.getResult().getReference().collection("loots"));
-                    txtView.setText(mob.getName());
+                    nameTxtView.setText(mob.getName());
                     descriptionView.setText(mob.getBehaviour());
                     String uri = "@drawable/" + mob.getImage();
 
@@ -79,6 +90,21 @@ public class MobInfo extends AppCompatActivity {
 
                     Drawable res = getResources().getDrawable(imageResource);
                     imageView.setImageDrawable(res);
+                    if(mob.getId() != null){
+                        idView.setText(mob.getId().toString());
+                    } else {
+                        idView.setText("?");
+                    }
+                    if(mob.getHealth() != null){
+                        lifeView.setText(mob.getHealth().toString());
+                    } else {
+                        lifeView.setText("?");
+                    }
+                    if(mob.getExperience() != null){
+                        expView.setText(mob.getExperience().toString());
+                    } else {
+                        expView.setText("?");
+                    }
 
                     if(mob.getLoots() != null){
                         System.out.println("loots is here");
@@ -105,8 +131,11 @@ public class MobInfo extends AppCompatActivity {
 
                 }
                 else{
-                    txtView.setText("");
+                    nameTxtView.setText("");
                     descriptionView.setText("");
+                    idView.setText("");
+                    lifeView.setText("");
+                    expView.setText("");
                 }
             }
         });

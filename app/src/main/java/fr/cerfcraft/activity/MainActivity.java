@@ -1,6 +1,5 @@
 package fr.cerfcraft.activity;
 
-import static android.content.ContentValues.TAG;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBar;
@@ -28,21 +27,9 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.FirebaseFirestore;
-
-import java.util.ArrayList;
 import java.util.Map;
 
 import fr.cerfcraft.BiomesActivity;
@@ -51,7 +38,7 @@ import fr.cerfcraft.CuissonActivity;
 import fr.cerfcraft.DAO.BasicDAO;
 import fr.cerfcraft.ItemsActivity;
 //import fr.cerfcraft.Manifest;
-import fr.cerfcraft.MissionsActivity;
+import fr.cerfcraft.MissionCategoriesActivity;
 import fr.cerfcraft.MobsActivity;
 import fr.cerfcraft.NotesActivity;
 import fr.cerfcraft.NotifsActivity;
@@ -91,13 +78,7 @@ public class MainActivity extends AppCompatActivity {
 
         searchRecyclerView = findViewById(R.id.search_recyclerView);
         //searchLayoutManager = new LinearLayoutManager(this);
-        System.out.println("test de null object " + searchLayoutManager==null);
         searchRecyclerView.setLayoutManager(searchLayoutManager);
-
-
-        DocumentReference docRef = db.collection("missions").document("oHO89WngEDDSoDoZxsbD");
-        BasicDAO dao = new BasicDAO() ;
-        Map<String, Object> map = dao.getDocumentsFromBD(docRef);
 
         //TODO Faire le bind à la place du switch
         final int listButtonId[] = {
@@ -116,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
                 ItemsActivity.class,
                 MobsActivity.class,
                 CuissonActivity.class,
-                MissionsActivity.class,
+                MissionCategoriesActivity.class,
                 NotesActivity.class,
                 NotifsActivity.class
         };
@@ -152,7 +133,7 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case 5:
                     activityToAcess.setOnClickListener(v -> {
-                        Intent intent = new Intent(this, MissionsActivity.class);
+                        Intent intent = new Intent(this, MissionCategoriesActivity.class);
                         startActivity(intent);
                     });
                     break;

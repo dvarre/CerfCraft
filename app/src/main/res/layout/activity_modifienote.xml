@@ -5,14 +5,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".NotesActivity">
+    tools:context=".NotesActivity"
+    android:background="#7F1A6B2D">
 
   <include
       android:id="@+id/include_note"
       layout="@layout/appbar"/>
 
   <Button
-      android:id="@+id/delete"
+      android:id="@+id/modifie"
       android:layout_width="141dp"
       android:layout_height="55dp"
       android:layout_marginTop="46dp"
@@ -34,18 +35,39 @@
       app:layout_constraintTop_toBottomOf="@+id/include_note" />
 
   <EditText
-      android:id="@+id/editTextTextMultiLine"
+      android:id="@+id/modificationName"
+      android:layout_width="219dp"
+      android:layout_height="71dp"
+      android:layout_marginBottom="24dp"
+      android:hint="Name"
+      app:layout_constraintBottom_toTopOf="@+id/modificationDescription"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent" />
+
+  <EditText
+      android:id="@+id/modificationDescription"
       android:layout_width="343dp"
       android:layout_height="420dp"
       android:layout_marginTop="57dp"
       android:layout_marginBottom="140dp"
       android:ems="10"
       android:gravity="start|top"
+      android:hint="Description"
       android:inputType="textMultiLine"
       android:text="Description"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+
+  <Button
+      android:id="@+id/delete"
+      android:layout_width="141dp"
+      android:layout_height="55dp"
+      android:layout_marginStart="16dp"
+      android:layout_marginTop="16dp"
+      android:hint="Supprimer"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

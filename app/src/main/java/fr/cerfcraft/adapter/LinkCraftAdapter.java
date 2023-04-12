@@ -26,7 +26,6 @@ import java.util.List;
 import fr.cerfcraft.BiomeInfo;
 import fr.cerfcraft.CraftItem;
 import fr.cerfcraft.ItemInfo;
-import fr.cerfcraft.MissionCategoryInfo;
 import fr.cerfcraft.MobInfo;
 import fr.cerfcraft.R;
 import fr.cerfcraft.model.Biome;
@@ -35,29 +34,28 @@ import fr.cerfcraft.model.Item;
 import fr.cerfcraft.model.Mission;
 import fr.cerfcraft.model.Mob;
 
-public class LinkBiomeAdapter extends RecyclerView.Adapter<LinkBiomeAdapter.LinkBiomeViewHolder>{
-
+public class LinkCraftAdapter extends RecyclerView.Adapter<LinkCraftAdapter.LinkCraftViewHolder>{
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     Context context;
     List<Object> objects;
     CollectionReference ref;
 
-    public LinkBiomeAdapter(Context context, List<Object> objects) {
+    public LinkCraftAdapter(Context context, List<Object> objects) {
         this.context = context;
         this.objects = objects;
     }
 
     @NonNull
     @Override
-    public LinkBiomeViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public LinkCraftAdapter.LinkCraftViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View adapterLayout = LayoutInflater.from(context)
                 .inflate(R.layout.link, parent, false);
 
-        return new LinkBiomeViewHolder(adapterLayout);
+        return new LinkCraftAdapter.LinkCraftViewHolder(adapterLayout);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull LinkBiomeViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull LinkCraftAdapter.LinkCraftViewHolder holder, int position) {
         Object object = objects.get(position);
         String uri="";
 
@@ -135,31 +133,6 @@ public class LinkBiomeAdapter extends RecyclerView.Adapter<LinkBiomeAdapter.Link
                     });
                 }
             });
-        }else if(object.getClass() == Mission.class){
-            Mission newObject = (Mission) object;
-            holder.linkButton.setText(newObject.getName());
-            uri = "@drawable/" + newObject.getImage();
-            ref = db.collection("missions");
-
-            holder.linkButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    ref.whereEqualTo("id", newObject.getId()).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                        @Override
-                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                            if (task.isSuccessful()) {
-                                for (QueryDocumentSnapshot document : task.getResult()) {
-                                    Log.d(TAG, document.getId() + " => " + document.getData());
-                                    Intent intent = new Intent(context, MissionCategoryInfo.class);
-                                    intent.putExtra("idToDisplay", document.getId());
-                                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                                    context.startActivity(intent);
-                                }
-                            }
-                        }
-                    });
-                }
-            });
         }else if(object.getClass() == Mob.class){
             Mob newObject = (Mob) object;
             holder.linkButton.setText(newObject.getName());
@@ -199,11 +172,11 @@ public class LinkBiomeAdapter extends RecyclerView.Adapter<LinkBiomeAdapter.Link
         return objects.size();
     }
 
-    public static class LinkBiomeViewHolder extends RecyclerView.ViewHolder {
+    public static class LinkCraftViewHolder extends RecyclerView.ViewHolder {
 
         Button linkButton;
 
-        public LinkBiomeViewHolder(@NonNull View itemView) {
+        public LinkCraftViewHolder(@NonNull View itemView) {
             super(itemView);
             linkButton = itemView.findViewById(R.id.link_button);
         }
