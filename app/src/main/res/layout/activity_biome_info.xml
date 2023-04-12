@@ -7,6 +7,17 @@
     tools:context=".BiomeInfo">
 
     <TextView
+        android:id="@+id/textViewBox"
+        android:layout_width="388dp"
+        android:layout_height="416dp"
+        android:background="@drawable/box_dark"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/description" />
+
+    <TextView
         android:id="@+id/titre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -37,23 +48,25 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/image" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/links"
-        android:layout_width="361dp"
-        android:layout_height="358dp"
-
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linkText" />
-
     <TextView
         android:id="@+id/linkText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="10dp"
         android:text="@string/deep_links"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/description" />
+        app:layout_constraintTop_toTopOf="@+id/textViewBox" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/links"
+        android:layout_width="362dp"
+        android:layout_height="351dp"
+
+        app:layout_constraintBottom_toBottomOf="@+id/textViewBox"
+        app:layout_constraintEnd_toEndOf="@+id/textViewBox"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linkText" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

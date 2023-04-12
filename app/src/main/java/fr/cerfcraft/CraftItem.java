@@ -26,13 +26,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 import fr.cerfcraft.adapter.LinkBiomeAdapter;
+import fr.cerfcraft.adapter.LinkCraftAdapter;
 import fr.cerfcraft.model.Biome;
 import fr.cerfcraft.model.Craft;
+import fr.cerfcraft.model.Dimension;
 import fr.cerfcraft.model.Item;
+import fr.cerfcraft.model.Mission;
+import fr.cerfcraft.model.Mob;
+import fr.cerfcraft.model.Structure;
 
 public class CraftItem extends AppCompatActivity {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     CollectionReference ref = db.collection("crafts");
+    LinkCraftAdapter linkCraftAdapter;
+    public List<Object> linkObjectList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,19 +52,19 @@ public class CraftItem extends AppCompatActivity {
             if(intent.hasExtra("idToDisplay")){
                 id = intent.getStringExtra("idToDisplay");
             }
-//            TextView txtView = findViewById(R.id.craft_name);
-
         }
-        TextView txtView = findViewById(R.id.titre);
+
+        TextView nameTxtView = findViewById(R.id.titre);
         ImageView imageView = findViewById(R.id.image);
         TextView descriptionView = findViewById(R.id.description);
-        Context ctx = this;
+        TextView idTxtView = findViewById(R.id.idNbTxtView);
+
         ref.document(id).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 if (task.isSuccessful()) {
                     Craft craft = task.getResult().toObject(Craft.class);
-                    txtView.setText(craft.getName());
+                    nameTxtView.setText(craft.getName());
                     descriptionView.setText(craft.getDescription());
                     String uri = "@drawable/" + craft.getImage();
 
@@ -65,25 +72,64 @@ public class CraftItem extends AppCompatActivity {
 
                     Drawable res = getResources().getDrawable(imageResource);
                     imageView.setImageDrawable(res);
-                    RecyclerView recyclerView = findViewById(R.id.links_craft);
-                    recyclerView.setHasFixedSize(true);
-                    recyclerView.setLayoutManager(new LinearLayoutManager(ctx));
-                    String itemResultId = craft.getResult().getId();
-                    db.collection("items").document(itemResultId).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-                        @Override
-                        public void onSuccess(DocumentSnapshot documentSnapshot) {
-                            List<Object> listResult = new ArrayList<>();
-                            listResult.add(documentSnapshot.toObject(Item.class));
-                            LinkBiomeAdapter adapter = new LinkBiomeAdapter(ctx, listResult);
-                            recyclerView.setAdapter(adapter);
-                        }
-                    });
+                    if(craft.getId() != null){
+                        idTxtView.setText(craft.getId().toString());
+                    } else {
+                        idTxtView.setText("?");
+                    }
+
+                    List<String> linksBiomes = craft.getLinksBiomes();
+                    List<String> linksCrafts = craft.getLinksCrafts();
+                    List<String> linksDimensions = craft.getLinksDimensions();
+                    List<String> linksItems = craft.getLinksItems();
+                    List<String> linksMissions = craft.getLinksMissions();
+                    List<String> linksMobs = craft.getLinksMobs();
+                    List<String> linksStructures = craft.getLinksStructures();
+                    addObjectsToListToDisplay(linksBiomes, "biomes", Biome.class);
+                    addObjectsToListToDisplay(linksCrafts, "crafts", Craft.class);
+                    addObjectsToListToDisplay(linksDimensions, "dimensions", Dimension.class);
+                    addObjectsToListToDisplay(linksItems, "items", Item.class);
+                    addObjectsToListToDisplay(linksMissions, "missions", Mission.class);
+                    addObjectsToListToDisplay(linksMobs, "mobs", Mob.class);
+                    addObjectsToListToDisplay(linksStructures, "structures", Structure.class);
+
+
                 }
                 else{
-                    txtView.setText("");
+                    nameTxtView.setText("");
                     descriptionView.setText("");
+                    imageView.setImageDrawable(null);
+                    nameTxtView.setText("");
                 }
             }
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        RecyclerView recyclerView = findViewById(R.id.links);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        linkCraftAdapter = new LinkCraftAdapter(getApplicationContext(), linkObjectList);
+        recyclerView.setAdapter(linkCraftAdapter);
+    }
+
+
+    private void addObjectsToListToDisplay(List<String> referencelist, String collectionBD, Class testObj){
+        for (int i=0; i<referencelist.size(); i++){
+            if(referencelist.get(i) != null && referencelist.get(i)!="")
+            {
+                db.collection(collectionBD).document(referencelist.get(i)).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                    @Override
+                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+                        Object obj = documentSnapshot.toObject(testObj);
+                        linkObjectList.add(obj);
+                        linkCraftAdapter.notifyDataSetChanged();
+                    }
+                });
+            }
+        }
     }
 }

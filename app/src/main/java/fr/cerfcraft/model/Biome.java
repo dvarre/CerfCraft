@@ -14,7 +14,13 @@ public class Biome {
     String rarity;
     float temperature;
     String description;
-    List<DocumentReference> links = new ArrayList<>();
+    List<String> linksBiomes = new ArrayList<>();
+    List<String> linksCrafts = new ArrayList<>();
+    List<String> linksDimensions = new ArrayList<>();
+    List<String> linksItems = new ArrayList<>();
+    List<String> linksMissions = new ArrayList<>();
+    List<String> linksMobs = new ArrayList<>();
+    List<String> linksStructures = new ArrayList<>();
 
     public int getId() {
         return id;
@@ -44,8 +50,60 @@ public class Biome {
         return description;
     }
 
-    public List<DocumentReference> getLinks() {
-        return links;
+    public List<String> getLinksBiomes() {
+        return linksBiomes;
+    }
+
+    public void setLinksBiomes(List<String> linksBiomes) {
+        this.linksBiomes = linksBiomes;
+    }
+
+    public List<String> getLinksCrafts() {
+        return linksCrafts;
+    }
+
+    public void setLinksCrafts(List<String> linksCrafts) {
+        this.linksCrafts = linksCrafts;
+    }
+
+    public List<String> getLinksDimensions() {
+        return linksDimensions;
+    }
+
+    public void setLinksDimensions(List<String> linksDimensions) {
+        this.linksDimensions = linksDimensions;
+    }
+
+    public List<String> getLinksItems() {
+        return linksItems;
+    }
+
+    public void setLinksItems(List<String> linksItems) {
+        this.linksItems = linksItems;
+    }
+
+    public List<String> getLinksMissions() {
+        return linksMissions;
+    }
+
+    public void setLinksMissions(List<String> linksMissions) {
+        this.linksMissions = linksMissions;
+    }
+
+    public List<String> getLinksMobs() {
+        return linksMobs;
+    }
+
+    public void setLinksMobs(List<String> linksMobs) {
+        this.linksMobs = linksMobs;
+    }
+
+    public List<String> getLinksStructures() {
+        return linksStructures;
+    }
+
+    public void setLinksStructures(List<String> linksStructures) {
+        this.linksStructures = linksStructures;
     }
 
     public void setId(int id) {
@@ -76,7 +134,4 @@ public class Biome {
         this.description = description;
     }
 
-    public void setLinks(List<DocumentReference> links) {
-        this.links = links;
-    }
 }
