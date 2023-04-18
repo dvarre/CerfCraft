@@ -56,13 +56,14 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView searchRecyclerView;
     private RecyclerView.Adapter searchAdapter;
     private RecyclerView.LayoutManager searchLayoutManager;
+    public Intent intentN;
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        intentN = new Intent(this, NotifsActivity.class);
         //Toolbar
         toolbar=findViewById(R.id.appToolBar); // On get la toolbar personnalisée qu'on a créé
         setSupportActionBar(toolbar);
@@ -237,6 +238,7 @@ public class MainActivity extends AppCompatActivity {
 
         };
 
+
         menu.findItem(R.id.search).setOnActionExpandListener(onActionExpandListener);
         SearchView searchView = (SearchView) menu.findItem(R.id.search).getActionView();
 
@@ -272,11 +274,16 @@ public class MainActivity extends AppCompatActivity {
         searchView.setQueryHint("Search Data here");
 
 
+        MenuItem.OnMenuItemClickListener clickMenu = new MenuItem.OnMenuItemClickListener() {
 
-
+            @Override
+            public boolean onMenuItemClick(@NonNull MenuItem menuItem) {
+                startActivity(intentN);
+                return true;
+            }
+        };
+        menu.findItem(R.id.menu).setOnMenuItemClickListener(clickMenu);
         return true;
-
-
     }
 
     @Override

@@ -9,9 +9,11 @@ import android.os.Handler;
 import android.os.Looper;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -22,6 +24,7 @@ import fr.cerfcraft.activity.MainActivity;
 public class CuissonEnCoursActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
+    public Intent intentN;
     protected NotificationManager notificationManager;
     NotificationCompat.Builder builder;
     Button button;
@@ -37,8 +40,10 @@ public class CuissonEnCoursActivity extends AppCompatActivity {
 
     private TextView itemRestantV;
     private TextView timeRestantV;
-    private int itemRestant;
-    private int timeRestant;
+    private static int itemRestant;
+    private static int timeRestant;
+
+    private static boolean firstTime;
 
     private int timeBeforeItem;
 
@@ -101,6 +106,7 @@ public class CuissonEnCoursActivity extends AppCompatActivity {
         cuissonStarted = false;
         toolbar=findViewById((R.id.include_cuisson));
         setSupportActionBar(toolbar);
+        intentN = new Intent(this, NotifsActivity.class);
         //ActionBar actionBar=getSupportActionBar();
         //actionBar.setDisplayHomeAsUpEnabled(true);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -161,6 +167,15 @@ public class CuissonEnCoursActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater=getMenuInflater();
         inflater.inflate(R.menu.menu,menu);
+        MenuItem.OnMenuItemClickListener clickMenu = new MenuItem.OnMenuItemClickListener() {
+
+            @Override
+            public boolean onMenuItemClick(@NonNull MenuItem menuItem) {
+                startActivity(intentN);
+                return true;
+            }
+        };
+        menu.findItem(R.id.menu).setOnMenuItemClickListener(clickMenu);
         return true;
     }
 }

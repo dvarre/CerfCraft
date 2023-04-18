@@ -1,16 +1,22 @@
 package fr.cerfcraft;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.app.AlertDialog;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -20,6 +26,7 @@ import fr.cerfcraft.activity.MainActivity;
 public class CuissonActivity extends AppCompatActivity {
     private Toolbar toolbar;
 
+    public Intent intentN;
     public static boolean cuissonEnCours = false;
     protected NotificationManager notificationManager;
     Button button;
@@ -44,6 +51,7 @@ public class CuissonActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         ActionBar actionBar=getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
+        intentN = new Intent(this, NotifsActivity.class);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             CharSequence name = "Notification cuisson";
@@ -72,11 +80,24 @@ public class CuissonActivity extends AppCompatActivity {
     }
     public void startNotif() {
         cuissonEnCours = true;
-        CuissonEnCoursActivity.nbItem = Integer.parseInt(number_item.getText().toString());
-        CuissonEnCoursActivity.nbFour = Integer.parseInt(number_furnaces.getText().toString());
-        CuissonEnCoursActivity.typeFour = FindCuissonType();
-        Intent intent = new Intent(this, CuissonEnCoursActivity.class);
-        startActivity(intent);
+        try {
+            CuissonEnCoursActivity.nbItem = Integer.parseInt(number_item.getText().toString());
+            CuissonEnCoursActivity.nbFour = Integer.parseInt(number_furnaces.getText().toString());
+            CuissonEnCoursActivity.typeFour = FindCuissonType();
+            Intent intent = new Intent(this, CuissonEnCoursActivity.class);
+            startActivity(intent);
+        } catch ( Exception e)  {
+            AlertDialog.Builder builder2 = new AlertDialog.Builder(this);
+            builder2.setMessage("Veuillez rentrez des nombres valides.")
+                    .setTitle("Error Cuisson")
+                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {}
+
+                    });
+            AlertDialog dialog = builder2.create();
+            dialog.show();
+        }
     }
 
     private String FindCuissonType() {
@@ -96,6 +117,15 @@ public class CuissonActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater=getMenuInflater();
         inflater.inflate(R.menu.menu,menu);
+        MenuItem.OnMenuItemClickListener clickMenu = new MenuItem.OnMenuItemClickListener() {
+
+            @Override
+            public boolean onMenuItemClick(@NonNull MenuItem menuItem) {
+                startActivity(intentN);
+                return true;
+            }
+        };
+        menu.findItem(R.id.menu).setOnMenuItemClickListener(clickMenu);
         return true;
     }
 }

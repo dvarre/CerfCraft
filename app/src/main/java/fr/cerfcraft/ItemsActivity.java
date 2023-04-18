@@ -9,10 +9,12 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -32,6 +34,7 @@ import fr.cerfcraft.model.Item;
 public class ItemsActivity extends AppCompatActivity {
     private Toolbar toolbar;
 
+    public Intent intentN;
     RecyclerView recyclerView;
     CollectionReference itemReference = FirebaseFirestore.getInstance().collection("items");
     ItemAdapter itemAdapter;
@@ -41,7 +44,7 @@ public class ItemsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_items);
-
+        intentN = new Intent(this, NotifsActivity.class);
         toolbar=findViewById((R.id.include_items));
         setSupportActionBar(toolbar);
         ActionBar actionBar=getSupportActionBar();
@@ -75,6 +78,15 @@ public class ItemsActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater=getMenuInflater();
         inflater.inflate(R.menu.menu,menu);
+        MenuItem.OnMenuItemClickListener clickMenu = new MenuItem.OnMenuItemClickListener() {
+
+            @Override
+            public boolean onMenuItemClick(@NonNull MenuItem menuItem) {
+                startActivity(intentN);
+                return true;
+            }
+        };
+        menu.findItem(R.id.menu).setOnMenuItemClickListener(clickMenu);
         return true;
     }
 }

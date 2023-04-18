@@ -1,5 +1,6 @@
 package fr.cerfcraft;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,6 +15,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -29,6 +31,7 @@ import fr.cerfcraft.adapter.NoteAdapter;
 public class NotesActivity extends AppCompatActivity {
     private Toolbar toolbar;
 
+    public Intent intentN;
     NoteAdapter noteAdapter;
     List<Note> notes;
 
@@ -55,7 +58,7 @@ public class NotesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notes);
-
+        intentN = new Intent(this, NotifsActivity.class);
         toolbar=findViewById((R.id.include_notes));
         setSupportActionBar(toolbar);
         ActionBar actionBar=getSupportActionBar();
@@ -122,6 +125,15 @@ public class NotesActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater=getMenuInflater();
         inflater.inflate(R.menu.menu,menu);
+        MenuItem.OnMenuItemClickListener clickMenu = new MenuItem.OnMenuItemClickListener() {
+
+            @Override
+            public boolean onMenuItemClick(@NonNull MenuItem menuItem) {
+                startActivity(intentN);
+                return true;
+            }
+        };
+        menu.findItem(R.id.menu).setOnMenuItemClickListener(clickMenu);
         return true;
     }
 }

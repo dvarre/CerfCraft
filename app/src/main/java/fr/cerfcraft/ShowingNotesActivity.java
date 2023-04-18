@@ -6,11 +6,15 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
@@ -23,6 +27,7 @@ public class ShowingNotesActivity extends AppCompatActivity {
     Note note;
     int id;
 
+    public Intent intentN;
 
     private void getIncomingIntent(){
         if(getIntent().hasExtra("Id") &&
@@ -54,7 +59,7 @@ public class ShowingNotesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_modifienote);
         getIncomingIntent();
-
+        intentN = new Intent(this, NotifsActivity.class);
         final int listButtonId[] = {
                 R.id.delete,
                 R.id.modifie,
@@ -138,5 +143,20 @@ public class ShowingNotesActivity extends AppCompatActivity {
 
 
 
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater=getMenuInflater();
+        inflater.inflate(R.menu.menu,menu);
+        MenuItem.OnMenuItemClickListener clickMenu = new MenuItem.OnMenuItemClickListener() {
+
+            @Override
+            public boolean onMenuItemClick(@NonNull MenuItem menuItem) {
+                startActivity(intentN);
+                return true;
+            }
+        };
+        menu.findItem(R.id.menu).setOnMenuItemClickListener(clickMenu);
+        return true;
     }
 }
