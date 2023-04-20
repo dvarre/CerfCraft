@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CuissonActivity">
+    tools:context=".CuissonActivity"
+    android:background="#7F1A6B2D">
 
     <include
         android:id="@+id/include_cuisson_en_cours"

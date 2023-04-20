@@ -12,7 +12,7 @@
         <entry key="..\:/CerfCraft/app/src/main/res/layout/activity_craft.xml" value="0.2" />
         <entry key="..\:/CerfCraft/app/src/main/res/layout/activity_craft_item.xml" value="0.4" />
         <entry key="..\:/CerfCraft/app/src/main/res/layout/activity_cuisson.xml" value="0.264" />
-        <entry key="..\:/CerfCraft/app/src/main/res/layout/activity_cuisson_en_cours.xml" value="0.3625" />
+        <entry key="..\:/CerfCraft/app/src/main/res/layout/activity_cuisson_en_cours.xml" value="0.18925831202046037" />
         <entry key="..\:/CerfCraft/app/src/main/res/layout/activity_item_info.xml" value="0.4" />
         <entry key="..\:/CerfCraft/app/src/main/res/layout/activity_items.xml" value="0.2" />
         <entry key="..\:/CerfCraft/app/src/main/res/layout/activity_main.xml" value="0.264" />
@@ -40,7 +40,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="jbr-17" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
